@@ -2,7 +2,7 @@ function requestLocation(){
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
       console.log(position);
-      createMap(position.coords.latitude, position.coords.longitude);
+      updateMap(position.coords.latitude, position.coords.longitude);
     })
   }
   else {    
@@ -10,9 +10,13 @@ function requestLocation(){
   }   
 }
 
-function createMap(latitude, longitude){
+function createMap(){
+   L.map('map');
+}
+
+function updateMap(latitude, longitude){
     // Create a map centered at the specified coordinates
-    var map = L.map('map').setView([latitude, longitude], 13);
+    var map = L.setView([latitude, longitude], 13);
 
     // Add a tile layer from OpenStreetMap's default tile server
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -28,4 +32,5 @@ function createMap(latitude, longitude){
 
 let leafletScript = document.createElement("script");
 leafletScript.setAttribute("script", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
+leafletScript.setAttribute('onload', 'createMap();');
 document.querySelector('body').appendChild(leafletScript);
