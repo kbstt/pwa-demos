@@ -11,20 +11,22 @@ function requestLocation(){
 }
 
 function createMap(){
-  L.map("map").setView([34.034, 118.23], 13);
+  // Create a default map
+  window.demoMap = L.map("map").setView([34.034, 118.23], 13);
+  
+  // Add a tile layer from OpenStreetMap's default tile server
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(demoMap);
+  
 }
 
 function updateMap(latitude, longitude){
-    // Create a map centered at the specified coordinates
-    var map = L.map("map").setView([latitude, longitude], 13);
-
-    // Add a tile layer from OpenStreetMap's default tile server
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
+    // Recenter our map around the coordinates
+    window.demoMap.setView([latitude, longitude], 13);
+  
     // Add a marker at the specified coordinates
-    var marker = L.marker([latitude, longitude]).addTo(map);
+    var marker = L.marker([latitude, longitude]).addTo(window.demoMap);
 
     // Add a popup to the marker
     marker.bindPopup("Hello, this is your location!");
