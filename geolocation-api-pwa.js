@@ -1,6 +1,7 @@
 function requestLocation(){
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
+      console.log(position);
       createMap(position.coors.latitude, position.coors.longitude);
     })
   }
