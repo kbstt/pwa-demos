@@ -15,9 +15,7 @@ function createMap(){
   window.demoMap = L.map("map").setView([34.034, 118.23], 13);
   
   // Add a tile layer from OpenStreetMap's default tile server
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(demoMap);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(window.demoMap);
   
 }
 
