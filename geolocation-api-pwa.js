@@ -11,7 +11,7 @@ function requestLocation(){
 }
 
 function createMap(){
-   L.map("map");
+  L.map("map").setView([34.034, 118.23], 13);
 }
 
 function updateMap(latitude, longitude){
