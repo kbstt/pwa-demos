@@ -11,16 +11,16 @@ function requestLocation(){
 }
 
 function createMap(){
-   L.map('map');
+   L.map("map");
 }
 
 function updateMap(latitude, longitude){
     // Create a map centered at the specified coordinates
-    var map = L.setView([latitude, longitude], 13);
+    var map = L.map("map").setView([latitude, longitude], 13);
 
     // Add a tile layer from OpenStreetMap's default tile server
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+       attribution: "&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors"
     }).addTo(map);
 
     // Add a marker at the specified coordinates
@@ -31,6 +31,6 @@ function updateMap(latitude, longitude){
 }
 
 let leafletScript = document.createElement("script");
-leafletScript.setAttribute("script", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
-leafletScript.setAttribute('onload', 'createMap();');
-document.querySelector('body').appendChild(leafletScript);
+leafletScript.setAttribute("src", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
+leafletScript.setAttribute("onload", "createMap();");
+document.querySelector("body").appendChild(leafletScript);
