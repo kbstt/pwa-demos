@@ -29,8 +29,3 @@ function updateMap(latitude, longitude){
     // Add a popup to the marker
     marker.bindPopup("Hello, this is your location!");
 }
-
-let leafletScript = document.createElement("script");
-leafletScript.setAttribute("src", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
-leafletScript.setAttribute("onload", "createMap();");
-document.querySelector("body").appendChild(leafletScript);
