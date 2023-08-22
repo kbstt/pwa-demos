@@ -20,7 +20,7 @@ function updateMap(latitude, longitude){
 
     // Add a tile layer from OpenStreetMap's default tile server
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-       attribution: "&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors"
+       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     // Add a marker at the specified coordinates
