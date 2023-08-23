@@ -20,10 +20,10 @@ function addContactsToTable(contacts){
   contacts.forEach(function(contact){
      let newRow = document.createElement('tr');
      newRow.innerHTML = `<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
-	<td>`+(contact.name || "unknown")+`</td>
-	<td>`+(contact.email || "unknown")+`</td>
-	<td>`+(contact.tel || "unknown")+`</td>
-	<td>`+(contact.address || "unknown")+`</td>
+		<td>`+(contact.name || "unknown")+`</td>
+		<td>`+(contact.email || "unknown")+`</td>
+		<td>`+(contact.tel || "unknown")+`</td>
+		<td>`+(contact.address || "unknown")+`</td>
      `;
      table.appendChild(newRow);
   });
