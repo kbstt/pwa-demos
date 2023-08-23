@@ -16,6 +16,7 @@ async function pickContacts(){
 function addContactsToTable(contacts){
   let defaultAvatar = "https://progressier.com/assets/img/profile-picture.svg";
   let table = document.querySelector('.contacts-table');
+	
   contacts.forEach(function(contact){
      let newRow = document.createElement('tr');
      newRow.innerHTML = `<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
