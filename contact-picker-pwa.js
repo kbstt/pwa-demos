@@ -1,7 +1,6 @@
 async function pickContacts(){
   if(!navigator.contacts || !window.ContactsManager) {
-   // alert("Your device does not support the Contact Picker API. Open this page on Android Chrome to give it a try!");
-    addContactsToTable([{name: "test1", email: "test2", tel: "test3"}]);
+     alert("Your device does not support the Contact Picker API. Open this page on Android Chrome to give it a try!");
   }
   else {
       //first we ask the browser to tell us which properties the device support
@@ -20,11 +19,11 @@ function addContactsToTable(contacts){
   contacts.forEach(function(contact){
      let newRow = document.createElement('tr');
      newRow.innerHTML = `
-       <td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
-		   <td>`+(contact.name || "unknown")+`</td>
-		   <td>`+(contact.email || "unknown")+`</td>
-		   <td>`+(contact.tel || "unknown")+`</td>
-		   <td>`+(contact.address || "unknown")+`</td>
+	<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
+	<td>`+(contact.name || "unknown")+`</td>
+	<td>`+(contact.email || "unknown")+`</td>
+	<td>`+(contact.tel || "unknown")+`</td>
+	<td>`+(contact.address || "unknown")+`</td>
      `;
      table.appendChild(newRow);
   });
