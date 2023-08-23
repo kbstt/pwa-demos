@@ -18,8 +18,7 @@ function addContactsToTable(contacts){
   let table = document.querySelector('.contacts-table');
   contacts.forEach(function(contact){
      let newRow = document.createElement('tr');
-     newRow.innerHTML = `
-	<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
+     newRow.innerHTML = `<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
 	<td>`+(contact.name || "unknown")+`</td>
 	<td>`+(contact.email || "unknown")+`</td>
 	<td>`+(contact.tel || "unknown")+`</td>
