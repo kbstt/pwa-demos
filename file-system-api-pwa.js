@@ -19,14 +19,35 @@ async function chooseAFile() {
     
     // Open file picker and choos ea file
     let fileHandle = await window.showOpenFilePicker(options);
-    console.log(fileHandle);
+    if (!fileHandle[0]){return;}
     
     // get the content of the file
     let file = await fileHandle[0].getFile();
-    console.log(file); 
+    previewFile(file);
   }
 }
 
-function renderFile(){
-   console.log(file)
+function previewFile(file){
+  let previewContainer = document.getElementById('file-preview-container');
+  previewContainer.innerHTML = "":
+  
+  if (file.type.startsWith("image/")) {
+      let imgPreview = document.createElement("img");
+      imgPreview.style.maxWidth = "100%";
+      imgPreview.style.maxHeight = "300px";
+      imgPreview.src = URL.createObjectURL(file);
+      previewContainer.appendChild(imgPreview);
+  } 
+  else if (file.type.startsWith("text/") || file.type.startsWith("application/")) {
+      let reader = new FileReader();
+      reader.onload = function(event) {
+        let textPreview = document.createElement("div");
+        textPreview.textContent = event.target.result;
+        previewContainer.appendChild(textPreview);
+      };
+      reader.readAsText(file);
+  } 
+  else {
+      alert("This demo does not support this specific type of file, but your own implementation could!");
+  }
 }
