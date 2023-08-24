@@ -15,6 +15,7 @@ async function lockScreen(){
    try {
        window.currentWakeLock = await navigator.wakeLock.request();
        document.getElementById('wake-lock-btn').innerHTML = "Release Wake Lock";
+       alert('Wake Lock enabled');
     }
     catch(err){
       alert(err);
@@ -22,6 +23,7 @@ async function lockScreen(){
 }
 
 async function releaseScreen(){
-  await navigator.wakeLock.release();
+  window.currentWakeLock.release();
   document.getElementById('wake-lock-btn').innerHTML = "Start Wake Lock";
+  alert('Wake Lock released');
 }
