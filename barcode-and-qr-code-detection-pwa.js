@@ -1,6 +1,6 @@
 async function startBarcodeScanner() {
      //we start the device's camera
-     let video = document.getElementById('video');
+     let video = document.getElementById('barcode-detection-video');
      let stream = await navigator.mediaDevices.getUserMedia({ video: true });
      video.srcObject = stream;
      video.play();
