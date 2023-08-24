@@ -18,7 +18,7 @@ async function chooseAFile() {
   console.log(fileHandle);
   
   // get the content of the file
-  let file = await fileHandle.getFile();
+  let file = await fileHandle[0].getFile();
   console.log(file); 
 }
 
