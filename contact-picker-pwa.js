@@ -14,13 +14,11 @@ async function pickContacts(){
 }
 
 function addContactsToTable(contacts){
-  let defaultAvatar = "https://progressier.com/assets/img/profile-picture.svg";
   let table = document.querySelector('.contacts-table');
 	
   contacts.forEach(function(contact){
      let newRow = document.createElement('tr');
-	  alert(contact.icon);
-     newRow.innerHTML = `<td><img src="`+(contact.icon||defaultAvatar)+`"/></td>
+     newRow.innerHTML = `<td><img src="https://progressier.com/assets/img/profile-picture.svg" alt="default avatar"/></td>
 		<td>`+(contact.name || "unknown")+`</td>
 		<td>`+(contact.email || "unknown")+`</td>
 		<td>`+(contact.tel || "unknown")+`</td>
