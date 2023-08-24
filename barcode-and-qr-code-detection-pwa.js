@@ -24,7 +24,7 @@ async function startBarcodeScanner() {
                         
             if (barcodes.length > 0) {
                 let barcodeData = barcodes[0].rawValue;
-                alert("Detected QR code linking to following URL: "+barcodeData); 
+                alert("Detected QR code with the following content: "+barcodeData); 
             };
           
            requestAnimationFrame(checkForQrCode);
