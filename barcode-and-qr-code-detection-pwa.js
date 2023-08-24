@@ -1,4 +1,13 @@
-async function startBarcodeScanner() {
+function launchBarcodeScanner() {
+     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.BarcodeDetector){
+          alert("Your device does not support the Barcode Detection API. Try again on Chrome Desktop or Android");
+     }
+     else {
+          startDetection();
+     }
+}
+
+async function startDetection() {
      //we start the device's camera
      let video = document.getElementById('barcode-detection-video');
      let stream = await navigator.mediaDevices.getUserMedia({ video: true });
