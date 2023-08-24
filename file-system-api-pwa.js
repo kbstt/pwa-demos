@@ -8,7 +8,7 @@ async function chooseAFile() {
       types: [{
         description: "Images", 
         accept: {
-            "image/*": [".png", ".gif", ".jpeg", ".jpg"],
+            "image/*": [".png", ".gif", ".jpeg", ".jpg", ".svg"],
             "text/*": [".txt", ".json"],
             "application/*": [".json"],
         },
