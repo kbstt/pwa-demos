@@ -1,10 +1,10 @@
 function getNetworkInformation(){
   let data = navigator.connection;
-  alert("downLink:"+data.downLink +"\n"+
+  alert("downlink:"+data.downlink +"\n"+
     "effectiveType: "+data.effectiveType+"\n"+
-    "downlinkMax: "+data.downlinkMax+"\n"+
     "rtt: "+data.rtt+"\n"+
     "saveData: "+data.saveData+"\n"+
+    "downlinkMax: "+data.downlinkMax+"\n"+
     "type: "+data.type+"\n"
   )
 }
