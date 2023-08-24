@@ -27,7 +27,7 @@ async function startBarcodeScanner() {
                 alert("Detected the following URL: "+barcodeData); 
             };
           
-           requestAnimationFrame(checkForBarcode);
+           requestAnimationFrame(checkForQrCode);
         };
        
         checkForQrCode();
