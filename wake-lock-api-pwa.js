@@ -1,4 +1,4 @@
-function startWakeLock(){
+function toggleWakeLock(){
   if (!navigator.wakeLock){
     alert("Your device does not support the Wake Lock API. Try on a iPhone or Android phone!");
   }
