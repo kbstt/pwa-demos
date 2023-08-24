@@ -7,6 +7,7 @@ function shareContent(){
     let title = document.getElementById("content-title").value;
     let text = document.getElementById("content-text").value;
     let data = {url: url, text: text, title: title};
+    console.log(data);
     navigator.share(data);
   }
 } 
