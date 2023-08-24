@@ -10,7 +10,7 @@ async function startBarcodeScanner() {
      let barcodeDetector = new BarcodeDetector({formats: ["aztec"] });
 
      video.addEventListener('loadedmetadata', async function(){
-        let = document.createElement('canvas');
+        let canvas = document.createElement('canvas');
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         let context = canvas.getContext('2d');
