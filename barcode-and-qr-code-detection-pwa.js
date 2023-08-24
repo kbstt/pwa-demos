@@ -7,7 +7,7 @@ async function startBarcodeScanner() {
 
      //for the purpose of this demo, we're only detecting QR codes, but there are plenty of other barcodes formats we could detect
      //see https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API#supported_barcode_formats
-     let barcodeDetector = new BarcodeDetector({formats: ["aztec"] });
+     let barcodeDetector = new BarcodeDetector({formats: ["qr_code"] });
 
      video.addEventListener('loadedmetadata', async function(){
         let canvas = document.createElement('canvas');
