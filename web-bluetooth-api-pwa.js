@@ -7,6 +7,6 @@ async function connectToBluetoothDevice(){
     //in a real-life example, you'll probably want to use filter so that your app only connects to certain types of devices (e.g. a heart rate monitor)
     //more on this here: https://developer.mozilla.org/en-US/docs/Web/API/Bluetooth/requestDevice
     let device = await navigator.bluetooth.requestDevice({acceptAllDevices: true});
-    console.log(device);
+    alert("Successfully connected to "+device.name);
   }
 }
