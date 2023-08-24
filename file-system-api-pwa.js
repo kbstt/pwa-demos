@@ -28,8 +28,8 @@ async function chooseAFile() {
 }
 
 function previewFile(file){
-  let previewContainer = document.getElementById('file-preview-container');
-  previewContainer.innerHTML = "":
+  let previewContainer = document.getElementById("file-preview-container");
+  previewContainer.innerHTML = "";
   
   if (file.type.startsWith("image/")) {
       let imgPreview = document.createElement("img");
