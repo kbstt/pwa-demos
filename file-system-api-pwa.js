@@ -33,8 +33,6 @@ function previewFile(file){
   
   if (file.type.startsWith("image/")) {
       let imgPreview = document.createElement("img");
-      imgPreview.style.maxWidth = "100%";
-      imgPreview.style.maxHeight = "300px";
       imgPreview.src = URL.createObjectURL(file);
       previewContainer.appendChild(imgPreview);
   } 
