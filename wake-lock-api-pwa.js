@@ -1,6 +1,6 @@
 function toggleWakeLock(){
   if (!navigator.wakeLock){
-    alert("Your device does not support the Wake Lock API. Try on a iPhone or Android phone!");
+    alert("Your device does not support the Wake Lock API. Try on an Android phone!");
   }
   else if (window.currentWakeLock && !window.currentWakeLock.released){
     releaseScreen();
