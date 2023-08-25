@@ -17,7 +17,7 @@ async function chooseAFile() {
       multiple: false,
     };
     
-    // Open file picker and choos ea file
+    // Open file picker and choose a file
     let fileHandle = await window.showOpenFilePicker(options);
     if (!fileHandle[0]){return;}
     
