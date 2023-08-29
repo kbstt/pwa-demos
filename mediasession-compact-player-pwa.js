@@ -66,11 +66,10 @@ function stopTrack(){
 //here is how you update the compact player with the details of the track/album/artist along with a artwork
 //reference: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession
 function setMediaSession(){
-	//some browsers may not support this
 	if (!navigator.mediaSession) {return;}
 	let trackPlaying = tracks[currentTrack];			
 	navigator.mediaSession.metadata = new MediaMetadata({ title: trackPlaying.title, artist: trackPlaying.artist, album: trackPlaying.album, artwork: trackPlaying.artwork});
-	//you also need to tie the controls of the compact player back to the controls of the <audio> element on the page
+	//we tie the controls of the compact player to the controls of the <audio> element on the page
 	//haven't implemented functions for seekbackward, seekforward, and seekto. See reference: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession
 	navigator.mediaSession.setActionHandler('play', playTrack);
 	navigator.mediaSession.setActionHandler('pause', pauseTrack);
@@ -83,8 +82,7 @@ function setMediaSession(){
 	navigator.mediaSession.playbackState = "playing";
 }
 		
-//we report the playback position to compact player every 300ms
-//if there is no audio playing or if the audio hasn't been fully parsed yet, we end the function earlier
+//we report the playback position to the compact player every 300ms
 //https://developer.mozilla.org/en-US/docs/Web/API/MediaSession/setPositionState
 setInterval(function(){
  	if (!audio() || audio().paused){return;}
