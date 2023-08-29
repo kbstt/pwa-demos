@@ -87,7 +87,7 @@ function setMediaSession(){
 //if there is no audio playing or if the audio hasn't been fully parsed yet, we end the function earlier
 //https://developer.mozilla.org/en-US/docs/Web/API/MediaSession/setPositionState
 setInterval(function(){
-  if (!audio || audio.paused){return;}
+ 	if (!audio || audio.paused){return;}
 	if (!navigator.mediaSession) {return;}
 	if (audio.duration > 0 === false){return;}
 	navigator.mediaSession.setPositionState({duration: parseInt(audio.duration), playbackRate: audio.playbackRate, position: parseInt(audio.currentTime) });
