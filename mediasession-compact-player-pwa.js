@@ -32,7 +32,7 @@ function prevTrack(){
 				
 //call the play() function of the native <audio> element
 //then update the compact player to show the details of the song with MediaSession
-function playTrack
+function playTrack(){
 	//the first time we play a track, we get the first item in our track list and set it as the current track
 	//you'd probably do this differently in a real-world scenario
 	//when the player finishes a track, we need to tell the <audio> play the next one
