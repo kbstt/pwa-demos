@@ -4,7 +4,7 @@ let patterns = [
   [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]
 ];
 
-vibrationPattern(index){
+function vibrationPattern(index){
   if (!window.navigator.vibrate){
     alert("Your device does not support the Vibration API. Try on an Android phone!");
   }
