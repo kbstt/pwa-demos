@@ -9,24 +9,19 @@ let tracks = [
 //in this example, it only allows to pause and play
 let playBtn = function(){return document.getElementById('play-btn');}
 let pauseBtn = function(){return document.getElementById('pause-btn');}
-		
-//we create the <audio> element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-let container = document.getElementById('player');
-let audio = document.createElement('audio');
-audio.setAttribute('controls', true);
-container.appendChild(audio);
+let audio = function(){return document.getElementById('audio-player');}
 				
 //this variable keeps in memory the index of the currently-playing song from the "tracks" array
 //we get the first track in the list and set it as the current track
 //you'd probably do this differently in a real-world scenario
 let currentTrack = 0;
-audio.src = tracks[currentTrack].source;
+audio().src = tracks[currentTrack].source;
 		
 //this changes the src of the <audio> element to that of the next track (or back to the first once we've reached the end of the list)
 function nextTrack(){
 	currentTrack += 1;
 	if (currentTrack >= tracks.length) { currentTrack = 0; }
-	audio.src = tracks[currentTrack].source;
+	audio().src = tracks[currentTrack].source;
 	playTrack();
 }
 		
@@ -34,14 +29,14 @@ function nextTrack(){
 function prevTrack(){
 	currentTrack -= 1;
 	if (currentTrack < 0) { currentTrack = tracks.length - 1; }
-	audio.src = tracks[currentTrack].source;
+	audio().src = tracks[currentTrack].source;
 	playTrack();
 }
 				
 //call the play() function of the native <audio> element
 //then update the compact player to show the details of the song with MediaSession
 function playTrack(){
-  	audio.play(); 
+  	audio().play(); 
   	setMediaSession();
 	//some utility functions to hide/show our play/pause buttons custom controls in our app
   	pauseBtn().classList.remove('hidden');
@@ -49,7 +44,7 @@ function playTrack(){
 }
 		
 function pauseTrack(){
-	audio.pause();
+	audio().pause();
 	//some utility functions to hide/show our play/pause buttons custom controls in our app
 	playBtn().classList.remove('hidden');
 	pauseBtn().classList.add('hidden');
@@ -59,8 +54,8 @@ function pauseTrack(){
 		
 //we reload the audio, and pause it.
 function stopTrack(){
-	audio.load();
-	audio.pause();
+	audio().load();
+	audio().pause();
 }
 		
 //here is how you update the compact player with the details of the track/album/artist along with a artwork
@@ -87,13 +82,13 @@ function setMediaSession(){
 //if there is no audio playing or if the audio hasn't been fully parsed yet, we end the function earlier
 //https://developer.mozilla.org/en-US/docs/Web/API/MediaSession/setPositionState
 setInterval(function(){
- 	if (!audio || audio.paused){return;}
+ 	if (!audio() || audio().paused){return;}
 	if (!navigator.mediaSession) {return;}
-	if (audio.duration > 0 === false){return;}
-	navigator.mediaSession.setPositionState({duration: parseInt(audio.duration), playbackRate: audio.playbackRate, position: parseInt(audio.currentTime) });
+	if (audio().duration > 0 === false){return;}
+	navigator.mediaSession.setPositionState({duration: parseInt(audio().duration), playbackRate: audio().playbackRate, position: parseInt(audio().currentTime) });
 }, 300);
 			
 //when the player finishes a track, make the <audio> play the next one
 //reference: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event
-audio.addEventListener("ended", nextTrack);
+audio().addEventListener("ended", nextTrack);
 			
