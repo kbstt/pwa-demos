@@ -7,10 +7,8 @@ let tracks = [
 //these are our basic custom audio controls 
 //in a real-world scenario, there would be more controls (previous track, next track, volume, etc)
 //in this example, it only allows to pause and play
-let playBtn = document.getElementById('play-btn');
-playBtn.addEventListener('click', playTrack);
-let pauseBtn = document.getElementById('pause-btn');
-pauseBtn.addEventListener('click', pauseTrack);
+let playBtn = function(){return document.getElementById('play-btn');}
+let pauseBtn = function(){return document.getElementById('pause-btn');}
 		
 //we create the <audio> element: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 let container = document.getElementById('player');
@@ -43,18 +41,18 @@ function prevTrack(){
 //call the play() function of the native <audio> element
 //then update the compact player to show the details of the song with MediaSession
 function playTrack(){
-  audio.play(); 
-	setMediaSession();
+  	audio.play(); 
+  	setMediaSession();
 	//some utility functions to hide/show our play/pause buttons custom controls in our app
-  pauseBtn.classList.remove('hidden');
-  playBtn.classList.add('hidden');	
+  	pauseBtn().classList.remove('hidden');
+  	playBtn().classList.add('hidden');	
 }
 		
 function pauseTrack(){
 	audio.pause();
 	//some utility functions to hide/show our play/pause buttons custom controls in our app
-	playBtn.classList.remove('hidden');
-	pauseBtn.classList.add('hidden');
+	playBtn().classList.remove('hidden');
+	pauseBtn().classList.add('hidden');
 	//we pause the playback state of the compact player
 	navigator.mediaSession.playbackState = "paused";
 }
