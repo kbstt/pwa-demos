@@ -1,4 +1,4 @@
-function startPayment(){  
+async function startPayment(){  
     let checkoutDetails = {
       id: "pwa-demo-order",
       displayItems: [
