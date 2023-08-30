@@ -7,7 +7,7 @@ async function startPayment(){
       total: { label: "Total", amount: {currency: "USD", value: "1"}}
     };
   
-    let paymentMethods = [
+    /*let paymentMethods = [
       {
         supportedMethods: "basic-card",
         data: {
@@ -24,7 +24,9 @@ async function startPayment(){
           countryCode: "US" 
         }
       }              
-    ];
+    ];*/
+
+    let paymentMethods = [{supportedMethods: "https://example.com/pay"}];
   
     let paymentRequest = new PaymentRequest(paymentMethods, checkoutDetails);
     let response = await paymentRequest.show();
