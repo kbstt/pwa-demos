@@ -11,15 +11,15 @@ async function startPayment(){
       {
         supportedMethods: 'https://google.com/pay', 
         data: {
-              environment: 'TEST',
-              apiVersion: 2,
-              apiVersionMinor: 0,
-              merchantInfo: {
+            environment: 'TEST',
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            merchantInfo: {
                 // A merchant ID is available after approval by Google: https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist}
                 // merchantId: '12345678901234567890',
                 merchantName: 'Progressier'
-              },
-              allowedPaymentMethods: [{
+            },
+            allowedPaymentMethods: [{
                 type: 'CARD',
                 parameters: {
                   allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
@@ -34,9 +34,9 @@ async function startPayment(){
                   }
                 }
               }]
-            }
+        }
       },
-     {
+      {
         supportedMethods: "https://apple.com/apple-pay",
         data: { 
           version: 3, 
