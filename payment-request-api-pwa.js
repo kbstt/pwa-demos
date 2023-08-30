@@ -30,8 +30,7 @@ async function startPayment(){
                 },
                 tokenizationSpecification: {
                   type: 'PAYMENT_GATEWAY',
-                  // Check with your payment gateway on the parameters to pass.
-                  // @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway}
+                  // Check with your payment gateway on the parameters to pass: https://developers.google.com/pay/api/web/reference/request-objects#gateway
                   parameters: {
                     'gateway': 'example',
                     'gatewayMerchantId': 'exampleGatewayMerchantId'
