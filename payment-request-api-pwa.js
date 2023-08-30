@@ -7,14 +7,14 @@ async function startPayment(){
       total: { label: "Total", amount: {currency: "USD", value: "1"}}
     };
   
-    /*let paymentMethods = [
+    let paymentMethods = [
       {
         supportedMethods: "basic-card",
         data: {
           supportedNetworks: ["visa", "mastercard"]
         }
       }, 
-      {
+     /* {
         supportedMethods: "https://apple.com/apple-pay",
         data: { 
           version: 3, 
@@ -23,10 +23,8 @@ async function startPayment(){
           supportedNetworks: ["amex", "discover", "masterCard", "visa", "maestro"],
           countryCode: "US" 
         }
-      }              
-    ];*/
-
-    let paymentMethods = [{supportedMethods: "https://example.com/pay"}];
+      }    */          
+    ];
   
     let paymentRequest = new PaymentRequest(paymentMethods, checkoutDetails);
     let response = await paymentRequest.show();
