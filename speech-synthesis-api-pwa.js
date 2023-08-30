@@ -5,8 +5,9 @@ function synthesiseSpeech(){
   else {
     let text = document.getElementById('text-to-read').value;
     let voices = speechSynthesis.getVoices();
+    let voice = voices.find(o => o.voiceURI === document.getElementById('voice-choice').value) || voices[0];
     let utterance = new SpeechSynthesisUtterance(text);
-    utterance.pitch = "Trinoids";
+    utterance.voice = voice;
     speechSynthesis.speak(utterance);
   }
 }
