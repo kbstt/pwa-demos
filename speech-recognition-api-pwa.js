@@ -11,9 +11,7 @@ function toggleSpeechRecognition(){
     window.transcriptionInProgress = window.webkitSpeechRecognition ? new webkitSpeechRecognition() : new SpeechRecognition();
     window.transcriptionInProgress.lang = "en-US";
     window.transcriptionInProgress.interimResults = true;
-    window.transcriptionInProgress.start();
     window.transcriptionInProgress.addEventListener("result", function(e){
-      console.log(e);
       result.innerHTML = e.results[0][0].transcript;
     });
     window.transcriptionInProgress.addEventListener("speechend", function(e){
@@ -23,5 +21,6 @@ function toggleSpeechRecognition(){
     window.transcriptionInProgress.addEventListener("speechstart", function(e){
        btn.innerHTML = '<i class="feather feather-mic-off"></i>Stop transcribing';
     });
+    window.transcriptionInProgress.start();
   }
 }
