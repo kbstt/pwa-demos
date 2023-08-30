@@ -12,6 +12,7 @@ function vibrationPattern(index){
     alert("Your device does not support the Vibration API. Try on an Android phone!");
   }
   else {
+    console.log(patterns[index]);
     window.navigator.vibrate(patterns[index]);
   }
 }
