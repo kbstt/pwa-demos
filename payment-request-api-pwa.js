@@ -10,6 +10,7 @@ async function startPayment(){
     let paymentMethods = [
       {
         supportedMethods: "basic-card",
+        data: { supportedNetworks: ["amex", "discover", "interac", "jcb", "mastercard", "visa"]]}
       }, 
     /*  {
         supportedMethods: 'https://google.com/pay', 
