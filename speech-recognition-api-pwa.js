@@ -1,5 +1,5 @@
 function startSpeechRecognition(){
-  let recognition = new SpeechRecognition();
+  let recognition = window.webkitSpeechRecognition ? new webkitSpeechRecognition() : new SpeechRecognition();
   recognition.lang = "en-US";
   recognition.interimResults = false;
   recognition.start();
