@@ -27,6 +27,6 @@ async function startPayment(){
     ];
   
     let paymentRequest = new PaymentRequest(paymentMethods, checkoutDetails);
-    let response = await request.show();
+    let response = await paymentRequest.show();
     console.log(response);
 }
