@@ -1,5 +1,5 @@
 function synthesiseSpeech(){
-  if (window.speechSynthesis){
+  if (!window.speechSynthesis){
     alert("Your device does not support the SpeechSynthesis API");
   }
   else {
