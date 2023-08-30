@@ -14,7 +14,7 @@ function toggleSpeechRecognition(){
     window.transcriptionInProgress.start();
     window.transcriptionInProgress.addEventListener("result", function(e){
       console.log(e);
-      result.innerHTML = e.results[0].transcript;
+      result.innerHTML = e.results[0][0].transcript;
     });
     window.transcriptionInProgress.addEventListener("speechend", function(e){
        window.transcriptionInProgress = null;
