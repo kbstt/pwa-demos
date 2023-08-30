@@ -33,7 +33,7 @@ async function startPayment(){
                     'gatewayMerchantId': 'exampleGatewayMerchantId'
                   }
                 }
-              }]
+           }]
         }
       },
       {
