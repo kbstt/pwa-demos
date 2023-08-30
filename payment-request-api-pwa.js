@@ -18,8 +18,7 @@ async function startPayment(){
               apiVersion: 2,
               apiVersionMinor: 0,
               merchantInfo: {
-                // A merchant ID is available after approval by Google.
-                // @see {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist}
+                // A merchant ID is available after approval by Google: https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist}
                 // merchantId: '12345678901234567890',
                 merchantName: 'Example Merchant'
               },
