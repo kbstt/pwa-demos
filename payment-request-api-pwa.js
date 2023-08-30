@@ -9,28 +9,28 @@ async function startPayment(){
   
     let paymentMethods = [
       {
-        supportedMethods: 'https://google.com/pay', 
+        supportedMethods: "https://google.com/pay", 
         data: {
-            environment: 'TEST',
+            environment: "TEST",
             apiVersion: 2,
             apiVersionMinor: 0,
             merchantInfo: {
                 // A merchant ID is available after approval by Google: https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist}
                 // merchantId: '12345678901234567890',
-                merchantName: 'Progressier'
+                merchantName: "Progressier"
             },
             allowedPaymentMethods: [{
-                type: 'CARD',
+                type: "CARD",
                 parameters: {
                   allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
                   allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
                 },
                 tokenizationSpecification: {
-                  type: 'PAYMENT_GATEWAY',
+                  type: "PAYMENT_GATEWAY",
                   // Check with your payment gateway on the parameters to pass: https://developers.google.com/pay/api/web/reference/request-objects#gateway
                   parameters: {
-                    'gateway': 'example',
-                    'gatewayMerchantId': 'exampleGatewayMerchantId'
+                    "gateway": "example",
+                    "gatewayMerchantId": "exampleGatewayMerchantId"
                   }
                 }
            }]
