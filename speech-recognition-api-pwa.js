@@ -7,12 +7,11 @@ function toggleSpeechRecognition(){
   }
   else {
     let btn = document.getElementById("transcribe-now");
-    let result = document.getElementById("results");
     window.transcriptionInProgress = window.webkitSpeechRecognition ? new webkitSpeechRecognition() : new SpeechRecognition();
     window.transcriptionInProgress.lang = "en-US";
     window.transcriptionInProgress.interimResults = true;
     window.transcriptionInProgress.addEventListener("result", function(e){
-      result.innerHTML = e.results[0][0].transcript;
+      document.getElementById("results").innerHTML = e.results[0][0].transcript;
     });
     window.transcriptionInProgress.addEventListener("speechend", function(e){
        window.transcriptionInProgress = null;
