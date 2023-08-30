@@ -13,12 +13,12 @@ function toggleSpeechRecognition(){
     window.transcriptionInProgress.addEventListener("result", function(e){
       document.getElementById("results").innerHTML = e.results[0][0].transcript;
     });
-    window.transcriptionInProgress.addEventListener("speechend", function(e){
+    window.transcriptionInProgress.addEventListener("audioend", function(e){
        window.transcriptionInProgress = null;
-       btn.innerHTML = '<i class="feather feather-mic"></i>Start transcribing';
+       btn.innerHTML = '<i class="fa fa-circle"></i>Start';
     });
-    window.transcriptionInProgress.addEventListener("speechstart", function(e){
-       btn.innerHTML = '<i class="feather feather-mic-off"></i>Stop transcribing';
+    window.transcriptionInProgress.addEventListener("audiostart", function(e){
+       btn.innerHTML = '<i class="fa fa-square"></i>Stop';
     });
     window.transcriptionInProgress.start();
   }
