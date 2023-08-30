@@ -9,10 +9,6 @@ async function startPayment(){
   
     let paymentMethods = [
       {
-        supportedMethods: "basic-card",
-        data: { supportedNetworks: ["amex", "discover", "interac", "jcb", "mastercard", "visa"]}
-      }, 
-    /*  {
         supportedMethods: 'https://google.com/pay', 
         data: {
               environment: 'TEST',
@@ -21,7 +17,7 @@ async function startPayment(){
               merchantInfo: {
                 // A merchant ID is available after approval by Google: https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist}
                 // merchantId: '12345678901234567890',
-                merchantName: 'Example Merchant'
+                merchantName: 'Progressier'
               },
               allowedPaymentMethods: [{
                 type: 'CARD',
@@ -49,7 +45,7 @@ async function startPayment(){
           supportedNetworks: ["amex", "discover", "masterCard", "visa", "maestro"],
           countryCode: "US" 
         }
-      }   */     
+      }   
     ];
   
     let paymentRequest = new PaymentRequest(paymentMethods, checkoutDetails);
