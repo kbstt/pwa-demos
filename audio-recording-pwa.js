@@ -21,6 +21,8 @@ async function recordAudio(){
       let blob = new Blob(chunks, { type: 'audio/mp3' });
       toggle.innerHTML = `<i class="fa fa-circle"></i>`;
       document.getElementById('audio-element').src = URL.createObjectURL(blob);
+      let tracks = stream.getTracks();
+      tracks.forEach(track => track.stop());
     };
   
     window.recorder.start();
