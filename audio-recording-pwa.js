@@ -14,12 +14,12 @@ async function recordAudio(){
     };
 
     window.recorder.onstart = function(){
-      toggle.innerHTML = `<i class="fa fa-circle"></i>`;
+      toggle.innerHTML = `<i class="fa fa-square"></i>`;
     };
     
     window.recorder.onstop = function(){
       let blob = new Blob(chunks, { type: 'audio/mp3' });
-      toggle.innerHTML = `<i class="fa fa-square"></i>`;
+      toggle.innerHTML = `<i class="fa fa-circle"></i>`;
       document.getElementById('audio-element').src = URL.createObjectURL(blob);
     };
   
