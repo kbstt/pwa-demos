@@ -1,4 +1,4 @@
-function recordScreen(){
+async function recordScreen(){
  try {
     if (!navigator.mediaDevices.getDisplayMedia){return alert("Your device does not support the Screen Capture API");}
    
