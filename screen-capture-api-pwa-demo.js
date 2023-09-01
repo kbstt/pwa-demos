@@ -40,7 +40,7 @@ async function recordScreen(){
          toggle.classList.add('disabled');
       };
      
-       window.recorder.start();
+      window.recorder.start();
    }
    catch (err) {
       alert(err);
