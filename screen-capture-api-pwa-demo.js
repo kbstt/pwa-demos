@@ -2,13 +2,16 @@ async function recordScreen(){
    if (!navigator.mediaDevices.getDisplayMedia){
      alert("Your device does not support the Screen Capture API");
    }
-   else if (window.recorder && window.recorder.state === "recording"){
-      window.recorder.stop();
-   }
    else {
      try {
        let toggle = document.getElementById("recording-button");
        let stream = await navigator.mediaDevices.getDisplayMedia({video: true, audio: false});
+       let track = stream.getVideoTracks()[0];
+
+       track.onended = () => {
+           window.recorder.stop();
+       };
+        
        let chunks = [];
      
        window.recorder = new MediaRecorder(stream);
@@ -20,7 +23,7 @@ async function recordScreen(){
    
       window.recorder.onstop = function(){
          let blob = new Blob(chunks, { type: 'video/mp4' });
-         toggle.innerHTML = `<i class="fa fa-circle"></i>`;
+         toggle.classList.remove('disabled');
          videoEl.srcObject = null;
          document.getElementById('video-element').src = URL.createObjectURL(blob);
          let tracks = stream.getTracks();
@@ -28,7 +31,7 @@ async function recordScreen(){
        };
    
        window.recorder.onstart = function(){
-         toggle.innerHTML = `<i class="fa fa-square"></i>`;
+         toggle.classList.add('disabled');
        };
      
        window.recorder.start();
