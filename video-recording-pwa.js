@@ -24,6 +24,7 @@ async function recordVideo(){
     window.recorder.onstop = function(){
       let blob = new Blob(chunks, { type: 'video/mp4' });
       toggle.innerHTML = `<i class="fa fa-circle"></i>`;
+      videoEl.srcObject = null;
       videoEl.src = URL.createObjectURL(blob);
       let tracks = stream.getTracks();
       tracks.forEach(track => track.stop());
