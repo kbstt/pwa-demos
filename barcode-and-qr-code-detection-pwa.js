@@ -10,7 +10,7 @@ function launchBarcodeScanner() {
 async function startDetection() {
      //we start the device's camera
      let video = document.getElementById('barcode-detection-video');
-     let stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: {exact: "environment"}}});
+     let stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: "environment"}});
      video.srcObject = stream;
      video.play();
 
