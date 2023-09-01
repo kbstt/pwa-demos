@@ -24,7 +24,6 @@ async function recordScreen(){
       window.recorder.onstop = function(){
          let blob = new Blob(chunks, { type: 'video/mp4' });
          toggle.classList.remove('disabled');
-         videoEl.srcObject = null;
          document.getElementById('video-element').src = URL.createObjectURL(blob);
          let tracks = stream.getTracks();
          tracks.forEach(track => track.stop());
