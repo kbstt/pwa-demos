@@ -10,7 +10,9 @@ async function getOrientation(){
 }
 
 window.addEventListener("deviceorientation", function(e){
-  document.querySelector("btn#get-motion").remove();
+  let requestBtn = document.querySelector("btn#get-motion");
+  if (requestBtn){requestBtn.remove();}
+  
   document.getElementById('alpha').innerHTML = e.alpha.toFixed(1)+"°"; //angle of motion around the Z axis
   document.getElementById('beta').innerHTML = e.beta.toFixed(1)+"°"; //angle of motion around the X axis
   document.getElementById('gamma').innerHTML = e.gamma.toFixed(1)+"°"; //angle of motion around the Y axis
