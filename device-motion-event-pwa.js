@@ -10,6 +10,8 @@ async function getMotion(){
 }
 
 window.addEventListener("devicemotion", function(e){
+  document.querySelector("btn#get-motion").remove();
+  
   document.getElementById('acceleration-x').innerHTML = e.acceleration.x.toFixed(2)+"m/s²";
   document.getElementById('acceleration-y').innerHTML = e.acceleration.y.toFixed(2)+"m/s²";
   document.getElementById('acceleration-z').innerHTML = e.acceleration.z.toFixed(2)+"m/s²";
