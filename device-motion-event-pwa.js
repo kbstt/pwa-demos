@@ -1,4 +1,4 @@
-window.addEventListener("deviceorientation", function(e){
+window.addEventListener("devicemotion", function(e){
   document.getElementById('acceleration-x').innerHTML = e.acceleration.x.toFixed(1)+"m/s²";
   document.getElementById('acceleration-y').innerHTML = e.acceleration.y.toFixed(1)+"m/s²";
   document.getElementById('acceleration-z').innerHTML = e.acceleration.z.toFixed(1)+"m/s²";
