@@ -10,7 +10,7 @@ async function getOrientation(){
 }
 
 window.addEventListener("deviceorientation", function(e){
-  let requestBtn = document.querySelector("btn#get-motion");
+  let requestBtn = document.querySelector("#get-orientation");
   if (requestBtn){requestBtn.remove();}
   
   document.getElementById('alpha').innerHTML = e.alpha.toFixed(1)+"°"; //angle of motion around the Z axis
