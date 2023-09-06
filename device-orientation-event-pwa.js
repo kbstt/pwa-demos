@@ -1,6 +1,6 @@
 window.addEventListener("deviceorientation", function(e){
-  let alpha = e.alpha; //angle of motion around the Z axis
-  let beta = e.beta; //angle of motion around the X axis
-  let gamma = e.gamma; //angle of motion around the Y axis 
-  console.log(alpha+" "+beta+" "+gamma);
+  document.getElementById('alpha').innerHTML = e.alpha; //angle of motion around the Z axis
+  document.getElementById('beta').innerHTML = e.beta; //angle of motion around the X axis
+  document.getElementById('gamma').innerHTML = e.gamme; //angle of motion around the Y axis
+  document.getElementById('orientation').innerHTML = Math.abs(beta) > Math.abs(gamma) ? "landscape" : "portrait";
 });
