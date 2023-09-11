@@ -1,4 +1,5 @@
 function renderFilePreview(base64Data){
+  console.log(base64Data);
   let blob = new Blob([base64Data], { type: "image/png" });
   let previewContainer = document.getElementById("file-preview-container");
   previewContainer.innerHTML = "";
