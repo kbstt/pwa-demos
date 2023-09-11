@@ -9,6 +9,9 @@ function onChange(event){
   reader.readAsDataURL(file);
 }
 
-async function addFileListener(){
+async function initializePage(){
   document.getElementById('upload-file').addEventListener('change', onChange);
+  let file = localStorage.getItem('uploadedFile');
+  if (!file){return;}
+  
 }
