@@ -1,16 +1,9 @@
 function renderFilePreview(base64Data){
-  console.log(base64Data);
-  let binaryString = atob(base64Data);
-  let binaryData = new Uint8Array(binaryString.length);
-  for (let i = 0; i < binaryString.length; i++) {
-      binaryData[i] = binaryString.charCodeAt(i);
-  }
-  let blob = new Blob([binaryData], { type: "image/png"});
-  let file = new File([blob], "demo-file.png", { type: "image/png"});
+  let blob = new Blob([base64Data], { type: "image/png" });
   let previewContainer = document.getElementById("file-preview-container");
   previewContainer.innerHTML = "";
   let imgPreview = document.createElement("img");
-  imgPreview.src = URL.createObjectURL(file);
+  imgPreview.src = URL.createObjectURL(blob);
   previewContainer.appendChild(imgPreview);
 }
 
