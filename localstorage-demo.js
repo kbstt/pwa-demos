@@ -1,4 +1,5 @@
 function renderFilePreview(base64Data){
+  console.log(base64Data);
   let binaryString = atob(base64Data);
   let binaryData = new Uint8Array(binaryString.length);
   for (let i = 0; i < binaryString.length; i++) {
