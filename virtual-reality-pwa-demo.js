@@ -18,7 +18,6 @@ async function startVR() {
     }
 
     const videoElement = document.getElementById('vr-video');
-    videoElement.src = 'https://github.com/kbstt/pwa-demos/raw/main/demo-vr-video.mp4';
     videoElement.play();
 
     // Enter WebXR when the button is clicked
