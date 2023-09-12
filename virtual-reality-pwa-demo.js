@@ -1,7 +1,7 @@
 let scriptsToAddToThePage = [
   "https://cdn.jsdelivr.net/npm/webxr-polyfill",
   "https://threejs.org/build/three.js",
-  "https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/GLTFLoader.js"
+  "https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/GLTFLoader.js",
   "https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/DRACOLoader.js",
   "https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/AnimationLoader.js",
   "https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/AnimationClipCreator.js",
