@@ -31,7 +31,7 @@ async function startVR() {
         vrSession.requestAnimationFrame(onVRFrame);
 
         const vrVideoElement = getVideoElement();
-        vrVideoElement.src = 'https://github.com/kbstt/pwa-demos/raw/main/demo-vr-video.mp4;
+        vrVideoElement.src = 'https://github.com/kbstt/pwa-demos/raw/main/demo-vr-video.mp4';
         vrVideoElement.play();
 
         await vrSession.requestReferenceSpace('local');
