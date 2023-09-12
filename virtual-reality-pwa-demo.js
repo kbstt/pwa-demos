@@ -9,7 +9,7 @@ let scriptsToAddToThePage = [
 ];
 
 scriptsToAddToThePage.forEach(function(url){
-  let script = document.creatElement('script');
+  let script = document.createElement('script');
   script.setAttribute('src', url);
   document.querySelector('head').appendChild(script);
 });
