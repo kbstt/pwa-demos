@@ -1,12 +1,12 @@
 async function connectToNFC() {
   if (!window.NDEFReader){
-    alert("Web NFC API is not supported in this browser.");
+    return alert("Web NFC API is not supported in this browser.");
   }
 
   let nfcPermission = await navigator.permissions.query({name: "nfc"});
     
   if (nfcPermission.state !== "granted") {
-    alert("NFC permission not granted");
+    return alert("NFC permission not granted");
   }
     
   let reader = new NDEFReader();
