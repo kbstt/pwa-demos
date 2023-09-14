@@ -9,10 +9,13 @@ async function connectToNFC() {
   btn.classList.add("disabled");
   btn.innerHTML = "Scanning...";
     
-  reader.addEventListener("reading", function(message, serialNumber){    
-    let tagData = message.records.map(record => record.toString()).join("\n");   
-    document.querySelector("#tag-data").innerHTML = tagData;
-  });
-    
-  await reader.scan();
+  let container = document.querySelector("#tag-data");
+  
+  let scan = await reader.scan();
+  scan.onreadingerror = function(event){
+      container.innerHTML = "Error! Cannot read data from the NFC tag. Try a different one?";
+  };
+  scan.onreading = function(event){
+     container.innerHTML = JSON.stringify(event);
+  };
 }
