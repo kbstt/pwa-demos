@@ -6,7 +6,7 @@ async function connectToNFC() {
   let nfcPermission = await navigator.permissions.query({name: "nfc"});
     
   if (nfcPermission.state !== "granted") {
-    return alert("NFC permission not granted");
+    alert("NFC permission not granted");
   }
     
   let reader = new NDEFReader();
