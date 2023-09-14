@@ -14,7 +14,7 @@ async function connectToNFC() {
   reader.addEventListener("reading", function(message, serialNumber){
     let btn = document.querySelector("#demo-btn button");
     btn.classList.add("disabled");
-    btn.innerHTML = "Scanning";
+    btn.innerHTML = "Scanning...";
     
     let tagData = message.records.map(record => record.toString()).join("\n");   
     document.querySelector("#tag-data").innerHTML = tagData;
