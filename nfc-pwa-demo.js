@@ -12,11 +12,13 @@ async function connectToNFC() {
   let reader = new NDEFReader();
     
   reader.addEventListener("reading", function(message, serialNumber){
-    let tagData = message.records.map(record => record.toString()).join("\n");
-    console.log(tagData);
+    let btn = document.querySelector("#demo-btn button");
+    btn.classList.add("disabled");
+    btn.innerHTML = "Scanning";
+    
+    let tagData = message.records.map(record => record.toString()).join("\n");   
+    document.querySelector("#tag-data").innerHTML = tagData;
   });
     
   await reader.scan();
 }
-
-
