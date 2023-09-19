@@ -3,8 +3,8 @@
 //in a real app, you'll want to generate the challenge server-side and 
 //maintain a session or temporary record of this challenge in your DB
 function generateRandomChallenge() {
-    const length = 32;
-    const randomValues = new Uint8Array(length);
+    let length = 32;
+    let randomValues = new Uint8Array(length);
     window.crypto.getRandomValues(randomValues);
     return randomValues;
 }
@@ -41,14 +41,11 @@ async function verifyPasskey(){
   try {
     //to verify a user's credentials, we simply pass the 
     //unique ID of the passkey we saved against the user profile
-    //in this example, we simply stored it in a global variable
+    //in this demo, we just saved it in a global variable
     let credentials = await navigator.credentials.get({
         publicKey: {
           challenge: generateRandomChallenge(),
-          allowCredentials: [{
-              type: "public-key",
-              id: window.currentPasskey.id
-          }]
+          allowCredentials: [{ type: "public-key", id: window.currentPasskey.id }]
         }
     });
     console.log(credentials);  
