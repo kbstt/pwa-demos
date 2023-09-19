@@ -27,7 +27,7 @@ async function createPasskey(){
         timeout: 60000,
         authenticatorSelection: {residentKey: "preferred", requireResidentKey: false, userVerification: "preferred"},
         attestation: "none",
-        extensions": { credProps: true}
+        extensions: { credProps: true }
       }
   });
   //in a real app, you'll store the credentials against the user's profile in your DB
