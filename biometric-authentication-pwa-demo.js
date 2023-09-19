@@ -19,7 +19,7 @@ async function createPasskey(){
         challenge: generateRandomChallenge(),
         rp: { name: "Progressier", id: window.location.hostname },
         //here you'll want to pass the user's info
-        user: { id: new Uint8Array(16), name: "johndoe@progressier.com", displayName: "John Doe"},
+        user: { id: new Uint8Array(16), name: "johndoe@example.com", displayName: "John Doe"},
         pubKeyCredParams: [
             { type: "public-key", alg: -7 },
             { type: "public-key", alg: -257 }
