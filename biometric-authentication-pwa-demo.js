@@ -49,7 +49,7 @@ async function verifyPasskey(){
     let credentials = await navigator.credentials.get({
         publicKey: {
           challenge: generateRandomChallenge(),
-          allowCredentials: [{ type: "public-key", id: window.currentPasskey.id }]
+          allowCredentials: [{ type: "public-key", id: window.currentPasskey.rawId }]
         }
     });
     console.log(credentials);  
