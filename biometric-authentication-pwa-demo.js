@@ -16,6 +16,7 @@ async function createPasskey(){
   
   let credentials = await navigator.credentials.create({
       publicKey: {
+        challenge: new Uint8Array([43, 55, 91, 123, 09, 181, 181, 78]),
         rp: { name: "Progressier", id: window.location.hostname },
         user: { id: new Uint8Array(16), name: randomUserId, displayName: randomUserId},
         pubKeyCredParams: [{ type: "public-key", alg: -7 }],
