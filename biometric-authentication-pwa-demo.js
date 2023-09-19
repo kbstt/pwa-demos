@@ -53,7 +53,7 @@ async function verifyPasskey(){
         }
     });
     console.log(credentials);  
-    alert("Passkey match");
+    alert("Biometric authentication successful!");
   }
   catch(err){
     alert(err);
