@@ -2,6 +2,7 @@ const signupSampleCredentials = {
   publicKey: {
     rp: {
       name: "Progressier",
+      id: window.location.hostname,
     },
     user: {
       id: new Uint8Array(16),
