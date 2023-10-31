@@ -33,4 +33,6 @@ function updateMap(latitude, longitude){
 
     // Add a popup to the marker
     marker.bindPopup("Hello, this is your location!");
+
+    alert("Latitude:"+latitude+", Longitude:"+longitude);
 }
