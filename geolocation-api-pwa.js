@@ -1,9 +1,15 @@
+function pinpointLocation(){
+  console.log(position);
+      updateMap(position.coords.latitude, position.coords.longitude);
+}
+
+function triggerAlert(err){
+  alert(err.message);
+}
+
 function requestLocation(){
   if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(function(position){
-      console.log(position);
-      updateMap(position.coords.latitude, position.coords.longitude);
-    })
+    navigator.geolocation.getCurrentPosition(pinpointLocation, triggerAlert);
   }
   else {    
      alert("Your current browser does not support the Geolocation feature.");
