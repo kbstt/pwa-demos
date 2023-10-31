@@ -1,6 +1,5 @@
-function markLocation(){
-  console.log(position);
-      updateMap(position.coords.latitude, position.coords.longitude);
+function markLocation(position){
+  updateMap(position.coords.latitude, position.coords.longitude);
 }
 
 function triggerAlert(err){
