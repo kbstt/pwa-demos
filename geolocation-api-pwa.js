@@ -3,6 +3,7 @@ function markLocation(position){
 }
 
 function triggerAlert(err){
+  //for demo purposes only, we show why location data can't be accessed
   alert(err.message);
 }
 
@@ -34,5 +35,6 @@ function updateMap(latitude, longitude){
     // Add a popup to the marker
     marker.bindPopup("Hello, this is your location!");
 
+    // For demo purposes only, display the latitude and longitude to the user
     alert("Latitude:"+latitude+", Longitude:"+longitude);
 }
