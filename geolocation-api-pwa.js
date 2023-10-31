@@ -16,14 +16,14 @@ function updateMap(position){
     alert("Latitude:"+latitude+", Longitude:"+longitude);
 }
 
-function triggerAlert(err){
+function geolocationInaccessible(err){
   //for demo purposes only, we show why location data can't be accessed
   alert(err.message);
 }
 
 function requestLocation(){
   if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(markLocation, triggerAlert);
+    navigator.geolocation.getCurrentPosition(updateMap, geolocationInaccessible);
   }
   else {    
      alert("Your current browser does not support the Geolocation feature.");
