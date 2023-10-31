@@ -17,23 +17,23 @@ function updateMap(position){
 }
 
 function geolocationInaccessible(err){
-  //for demo purposes only, we show why location data can't be accessed
-  alert(err.message);
+    //for demo purposes only, we show why location data can't be accessed
+    alert(err.message);
 }
 
 function requestLocation(){
-  if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(updateMap, geolocationInaccessible);
-  }
-  else {    
-     alert("Your current browser does not support the Geolocation feature.");
-  }   
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(updateMap, geolocationInaccessible);
+    }
+    else {    
+        alert("Your current browser does not support the Geolocation feature.");
+    }   
 }
 
 function createMap(){
-  // Create a default map
-  window.demoMap = L.map("map").setView([48.8584, 2.2945], 2);
+    // Create a default map
+    window.demoMap = L.map("map").setView([48.8584, 2.2945], 2);
   
-  // Add a tile layer from OpenStreetMap's default tile server
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(window.demoMap); 
+    // Add a tile layer from OpenStreetMap's default tile server
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(window.demoMap); 
 }
