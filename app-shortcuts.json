@@ -7,24 +7,21 @@
     "src": "https://progressier.com/assets/img/icons/bell.png",
     "sizes": "192x192"
   }]
-},
-{
+},{
   "name": "New Review",
   "url": "https://progressier.com/dashboard/reviews?openreviewimport=true",
   "icons": [{
     "src": "https://progressier.com/assets/img/icons/award.png",
     "sizes": "192x192"
   }]
-},
-{
+},{
   "name": "Analytics",
   "url": "https://progressier.com/dashboard/analytics",
   "icons": [{
     "src": "https://progressier.com/assets/img/icons/activity.png",
     "sizes": "192x192"
   }]
-},
-{
+},{
   "name": "Settings",
   "url": "https://progressier.com/dashboard/name-domain",
   "icons": [{
