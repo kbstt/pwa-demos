@@ -23,14 +23,13 @@
     "src": "https://progressier.com/assets/img/icons/activity.png",
     "sizes": "192x192"
   }]
- },
- {
+},
+{
   "name": "Settings",
   "url": "https://progressier.com/dashboard/name-domain",
   "icons": [{
     "src": "https://progressier.com/assets/img/icons/clipboard.png",
     "sizes": "192x192"
   }]
-  }
-],
+}],
 //the rest of your manifest goes here
