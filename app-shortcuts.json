@@ -1,0 +1,36 @@
+//each shortcut has a name, url, and icons
+//there can be up to 4 icons in the shortcuts array
+"shortcuts": [{
+  "name": "Send Notification",
+  "url": "https://progressier.com/dashboard/push-campaigns?composer=new",
+  "icons": [{
+    "src": "https://progressier.com/assets/img/icons/bell.png",
+    "sizes": "192x192"
+  }]
+},
+{
+  "name": "New Review",
+  "url": "https://progressier.com/dashboard/reviews?openreviewimport=true",
+  "icons": [{
+    "src": "https://progressier.com/assets/img/icons/award.png",
+    "sizes": "192x192"
+  }]
+},
+{
+  "name": "Analytics",
+  "url": "https://progressier.com/dashboard/analytics",
+  "icons": [{
+    "src": "https://progressier.com/assets/img/icons/activity.png",
+    "sizes": "192x192"
+  }]
+ },
+ {
+  "name": "Settings",
+  "url": "https://progressier.com/dashboard/name-domain",
+  "icons": [{
+    "src": "https://progressier.com/assets/img/icons/clipboard.png",
+    "sizes": "192x192"
+  }]
+  }
+],
+//the rest of your manifest goes here
