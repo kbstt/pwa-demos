@@ -36,4 +36,4 @@ function createSelectorForLanguageCodes(){
   });
 };
 
-createSelectorForLanguageCodes();
+window.addEventListener("load", createSelectorForLanguageCodes);
