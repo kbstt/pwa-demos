@@ -35,3 +35,5 @@ function createSelectorForLanguageCodes(){
      container.appendChild(opt);
   });
 };
+
+createSelectorForLanguageCodes();
