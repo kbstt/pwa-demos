@@ -8,7 +8,7 @@ function toggleSpeechRecognition(){
   else {
     let btn = document.getElementById("transcribe-now");
     window.transcriptionInProgress = window.webkitSpeechRecognition ? new webkitSpeechRecognition() : new SpeechRecognition();
-    window.transcriptionInProgress.lang = "en-US";
+    window.transcriptionInProgress.lang = document.getElementById("language-selector").value || "en-US";
     window.transcriptionInProgress.interimResults = true;
     window.transcriptionInProgress.addEventListener("result", function(e){
       document.getElementById("results").innerHTML = e.results[0][0].transcript;
