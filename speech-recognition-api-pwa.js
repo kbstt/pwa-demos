@@ -22,7 +22,7 @@ function toggleSpeechRecognition(){
     });
     window.transcriptionInProgress.start();
   }
-}
+};
 
 function createSelectorForLanguageCodes(){
   //this is not an exhaustive list. Check https://en.wikipedia.org/wiki/IETF_language_tag for all available codes.
@@ -34,4 +34,4 @@ function createSelectorForLanguageCodes(){
      opt.setAttribute("value", code);
      container.appendChild(opt);
   });
-},
+};
