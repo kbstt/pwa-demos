@@ -10,9 +10,9 @@ function vibrationPattern(index){
   if (navigator.vibrate){
     navigator.vibrate(patterns[index]);
   }
-  /*iOS fallback: Webkit does not support the Vibration API
-  However, you can create a small haptic feedback by creating
-  a label associated to a switch input and manually toggling it*/
+  /*iOS fallback: WebKit browsers do not support the Vibration API
+  However, you can trigger a light haptic feedback by associating
+  a label to a switch input and toggling it programmatically */
   else {
       let id = Math.random().toString(36).slice(2);
 	  let el = document.createElement('div');
