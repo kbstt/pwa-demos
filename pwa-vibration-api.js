@@ -12,7 +12,7 @@ function vibrationPattern(index){
   }
   /*iOS fallback: Webkit does not support the Vibration API
   However, you can create a small haptic feedback by creating
-  a label associated to switch input and manually toggling it*/
+  a label associated to a switch input and manually toggling it*/
   else {
       let id = Math.random().toString(36).slice(2);
 	  let el = document.createElement('div');
