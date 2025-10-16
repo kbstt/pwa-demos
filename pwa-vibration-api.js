@@ -7,10 +7,19 @@ let patterns = [
 ];
 
 function vibrationPattern(index){
-  if (!window.navigator.vibrate){
-    alert("Your device does not support the Vibration API. Try on an Android phone!");
+  if (navigator.vibrate){
+    navigator.vibrate(patterns[index]);
   }
+  /*iOS fallback: Webkit does not support the Vibration API
+  However, you can create a small haptic feedback by creating
+  a label associated to switch input and manually toggling it*/
   else {
-    window.navigator.vibrate(patterns[index]);
+      let id = Math.random().toString(36).slice(2);
+			let el = document.createElement('div');
+			el.innerHTML = `<input type="checkbox" id="`+id+`" switch /><label for="`+id+`"></label>`;
+			el.setAttribute("style", "display:none !important;opacity:0 !important;visibility:hidden !important;");
+			document.querySelector('body').appendChild(el);
+			el.querySelector('label').click();
+			setTimeout(function(){ el.remove(); }, 1500);
   }
 }
