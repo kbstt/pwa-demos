@@ -68,7 +68,7 @@ function batteryAPISupported(){
   return true;
 }
 
-async monitorBatteryStatus(){
+async function monitorBatteryStatus(){
   let battery = await navigator.getBattery();
   logBatteryObject();
   battery.addEventListener('levelchange', logBatteryObject);
