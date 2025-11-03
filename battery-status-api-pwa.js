@@ -67,4 +67,14 @@ function batteryAPISupported(){
   }
   return true;
 }
-setTimeout(logBatteryObject, 1000);
+
+setTimeout(monitorBatteryStatu, 600);
+
+async monitorBatteryStatus(){
+  let battery = await navigator.getBattery();
+  logBatteryObject();
+  battery.addEventListener('levelchange', logBatteryObject);
+  battery.addEventListener('chargingchange', logBatteryObject);
+  battery.addEventListener('chargingtimechange', logBatteryObject);
+  battery.addEventListener('dischargingtimechange', logBatteryObject);
+}
