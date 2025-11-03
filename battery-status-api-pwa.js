@@ -5,7 +5,7 @@ async function getBatteryLevel(){
   logBatteryObject();
 }
 
-async function isTheDeviceInCharge(){
+async function isTheDeviceCharging(){
   if (!batteryAPISupported()){return;}
   let battery = await navigator.getBattery();
   alert("Your device is charging: "+battery.charging);
