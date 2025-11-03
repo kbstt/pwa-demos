@@ -67,4 +67,4 @@ function batteryAPISupported(){
   }
   return true;
 }
-logBatteryObject();
+setTimeout(logBatteryObject, 1000);
