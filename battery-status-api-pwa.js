@@ -45,7 +45,7 @@ async function timeLeftToEmptyBattery(){
 }
 
 async function logBatteryObject(){
-  let container = document.getElementById("battery-json"):
+  let container = document.getElementById("battery-json");
   if (navigator.getBattery){
     let battery = await navigator.getBattery();
     container.innerHTML = JSON.stringify(battery);
