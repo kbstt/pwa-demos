@@ -48,7 +48,12 @@ async function logBatteryObject(){
   let container = document.getElementById("battery-json");
   if (navigator.getBattery){
     let battery = await navigator.getBattery();
-    container.innerHTML = JSON.stringify(battery);
+    container.innerHTML = `
+       charging: `+battery.charging+`,<br>
+       level: `+battery.level+`,<br>
+       dischargingTime: `+battery.dischargingTime+`<br>
+       chargingTime: `+battery.chargingTime+`<br>
+    `;
   }
   else {
     container.innerHTML = "Your current browser does not support the Battery API";
