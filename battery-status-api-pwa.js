@@ -2,12 +2,14 @@ async function getBatteryLevel(){
   if (!batteryAPISupported()){return;}
   let battery = await navigator.getBattery();
   alert("Your device has "+(battery.level * 100)+"% battery left");
+  logBatteryObject();
 }
 
 async function isTheDeviceInCharge(){
   if (!batteryAPISupported()){return;}
   let battery = await navigator.getBattery();
   alert("Your device is charging: "+battery.charging);
+  logBatteryObject();
 }
 
 async function timeLeftToFullCharge(){
@@ -17,8 +19,13 @@ async function timeLeftToFullCharge(){
     alert ("Your device is not currently charging");
   }
   else {
-    alert("Time left to full charge: "+(battery.chargingTime/60) + "min");
+    let timeLeft = battery.chargingTime/60 + " min";
+    if (battery.chargingTime === "Infinity"){
+       timeLeft = "unknown";
+    }
+    alert("Time left to full charge: "+timeLeft);
   }
+  logBatteryObject();
 }
 
 async function timeLeftToEmptyBattery(){
@@ -28,8 +35,20 @@ async function timeLeftToEmptyBattery(){
     alert ("Your device is currently charging");
   }
   else {
-    alert("Time left to empty battery: "+(battery.dischargingTime/60) + "min");
+    let timeLeft = battery.dischargingTime/60 + " min";
+    if (battery.dischargingTime === "Infinity"){ 
+       timeLeft = "unknown"; 
+    }
+    alert("Time left to empty battery: "+timeLeft);
   }
+  logBatteryObject();
+}
+
+async function logBatteryObject(){
+  if (!navigator.getBattery){return;}
+  let container = document.getElementById("battery-json"):
+  let battery = await navigator.getBattery();
+  container.innerHTML = JSON.stringify(battery);
 }
 
 function batteryAPISupported(){
