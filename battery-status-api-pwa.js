@@ -20,7 +20,7 @@ async function timeLeftToFullCharge(){
   }
   else {
     let timeLeft = battery.chargingTime/60 + " min";
-    if (battery.chargingTime === "Infinity"){
+    if (!isFinite(battery.chargingTime)){
        timeLeft = "unknown";
     }
     alert("Time left to full charge: "+timeLeft);
@@ -36,7 +36,7 @@ async function timeLeftToEmptyBattery(){
   }
   else {
     let timeLeft = battery.dischargingTime/60 + " min";
-    if (battery.dischargingTime === "Infinity"){ 
+    if (!isFinite(battery.dischargingTime)){
        timeLeft = "unknown"; 
     }
     alert("Time left to empty battery: "+timeLeft);
