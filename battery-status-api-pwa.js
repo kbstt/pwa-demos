@@ -45,16 +45,21 @@ async function timeLeftToEmptyBattery(){
 }
 
 async function logBatteryObject(){
-  if (!navigator.getBattery){return;}
   let container = document.getElementById("battery-json"):
-  let battery = await navigator.getBattery();
-  container.innerHTML = JSON.stringify(battery);
+  if (navigator.getBattery){
+    let battery = await navigator.getBattery();
+    container.innerHTML = JSON.stringify(battery);
+  }
+  else {
+    container.innerHTML = "Your current browser does not support the Battery API";
+  }  
 }
 
 function batteryAPISupported(){
   if (!navigator.getBattery){
-    alert('You current browser does not support the Battery API');
+    alert("You current browser does not support the Battery API");
     return false;
   }
   return true;
 }
+logBatteryObject();
