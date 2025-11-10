@@ -13,7 +13,9 @@ async function uploadImageToDetectText(){
     if (!file) {return};
     const img = new Image();
     img.src = URL.createObjectURL(file);
-    document.getElementById("text-detector-result").appendChild(img);
+    let container = document.getElementById("text-detector-result");
+    container.innerHTML = "";
+    container.appendChild(img);
     await img.decode();
     const detector = new TextDetector();
     const results = await detector.detect(img);
