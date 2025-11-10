@@ -22,14 +22,21 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#6beeff";
   ctx.fillStyle = "#ff4235";
-  faces.forEach(function(face){
+  faces.forEach(face => {
     const { boundingBox, landmarks } = face;
-    ctx.strokeRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
-    const points = (landmarks ?? []).flatMap(landmark => landmark.locations ?? []);
-    points.forEach(point => {
+    ctx.strokeRect(boundingBox.x, boundingBox.y,  boundingBox.width, boundingBox.height);
+    (landmarks ?? []).forEach(landmark => {
+      const points = landmark.locations ?? [];
+      if (points.length < 2) return;
       ctx.beginPath();
-      ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
-      ctx.fill();
+      ctx.moveTo(points[0].x * scaleX, points[0].y * scaleY);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x * scaleX, points[i].y * scaleY);
+      }
+      if (landmark.type === 'leftEye' || landmark.type === 'rightEye' || landmark.type === 'mouth') {
+        ctx.closePath();
+      }
+      ctx.stroke();
     });
   });
   requestAnimationFrame(drawCurrentFrameOnCanvasAndDetectFaces);
