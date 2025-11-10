@@ -20,8 +20,6 @@ async function startDetection() {
 
      video.addEventListener('loadedmetadata', async function(){
         let canvas = document.getElementById('barcode-detection-canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
         let context = canvas.getContext('2d');
 
         let checkForQrCode = async function(){
