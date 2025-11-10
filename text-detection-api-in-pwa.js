@@ -13,6 +13,7 @@ async function uploadImageToDetectText(){
     if (!file) {return};
     let img = new Image();
     img.src = URL.createObjectURL(file);
+    await img.decode();
     let container = document.getElementById("text-detector-result");
     container.innerHTML = "";
     container.appendChild(img);
