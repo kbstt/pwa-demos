@@ -11,13 +11,25 @@ async function uploadImageToDetectText(){
        fileInput.click();
     });
     if (!file) {return};
-    const img = new Image();
+    let img = new Image();
     img.src = URL.createObjectURL(file);
     let container = document.getElementById("text-detector-result");
     container.innerHTML = "";
     container.appendChild(img);
-    await img.decode();
-    const detector = new TextDetector();
-    const results = await detector.detect(img);
-    console.log(results);
+    let canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.style.position = "absolute";
+    canvas.style.left = "0";
+    canvas.style.top = "0";
+    container.appendChild(canvas);
+    let ctx = canvas.getContext('2d');
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 2;
+    let detector = new TextDetector();
+    let results = await detector.detect(img);
+    results.forEach(result => {
+        const box = result.boundingBox;
+        ctx.strokeRect(box.x, box.y, box.width, box.height);
+    });
 }
