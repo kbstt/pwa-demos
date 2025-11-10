@@ -1,0 +1,6 @@
+{
+  "protocol_handlers": [{
+    "protocol": "mailto",
+    "url": "https://example.com/handle-mail?type=%s"
+  }]    
+}
