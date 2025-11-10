@@ -13,15 +13,14 @@ async function startFaceDetection() {
 
 async function drawCurrentFrameOnCanvasAndDetectFaces(){
   //we draw the video stream on a canvas
-  window.faceDetectionCanvas.getContext('2d').drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
-
-  //we populate the facial features on a different canvas
-  let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
+ // window.faceDetectionCanvas.getContext('2d').drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
   let ctx = window.faceDetectionFeatureCanvas.getContext('2d');
   ctx.clearRect(0, 0, window.faceDetectionFeatureCanvas.width, window.faceDetectionFeatureCanvas.height);
+  ctx.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
+  let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#6beeff";
-  ctx.fillStyle = "#6beeff";
+  ctx.fillStyle = "lime";
   faces.forEach(face => {
     const { boundingBox, landmarks } = face;
     ctx.strokeRect(boundingBox.x, boundingBox.y,  boundingBox.width, boundingBox.height);
