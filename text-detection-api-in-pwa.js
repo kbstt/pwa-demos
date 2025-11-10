@@ -16,5 +16,5 @@ async function uploadImageToDetectText(){
     await img.decode();
     const detector = new TextDetector();
     const results = await detector.detect(img);
-    results.forEach(result => console.log(result.rawValue));
+    console.log(results);
 }
