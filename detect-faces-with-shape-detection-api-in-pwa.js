@@ -33,9 +33,7 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
       for (let i = 1; i < points.length; i++) {
         ctx.lineTo(points[i].x, points[i].y);
       }
-      if (landmark.type === 'leftEye' || landmark.type === 'rightEye' || landmark.type === 'mouth') {
-        ctx.closePath();
-      }
+      ctx.closePath();
       ctx.stroke();
     });
   });
