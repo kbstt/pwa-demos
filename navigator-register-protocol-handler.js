@@ -1,4 +1,4 @@
 navigator.registerProtocolHandler(
   'mailto', 
-  'https://example.com?type=%s'
+  'https://example.com/handle-mail?type=%s'
 );
