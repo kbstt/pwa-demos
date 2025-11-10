@@ -14,7 +14,7 @@ async function startStreaming() {
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
   let offer = await window.p2pConnection.createOffer();
   await window.p2pConnection.setLocalDescription(offer);
-  document.getElementById('local').value = JSON.stringify(window.p2pConnection.localDescription);
+  document.getElementById('webrtc-offer-answer').value = JSON.stringify(window.p2pConnection.localDescription);
 }
 
 async function answerAndConnect() {
@@ -22,9 +22,9 @@ async function answerAndConnect() {
   let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   window.rtcVideoElement.srcObject = stream;
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
-  let offer = JSON.parse(document.getElementById('remote').value);
+  let offer = JSON.parse(document.getElementById('webrtc-offer-answer').value);
   await window.p2pConnection.setRemoteDescription(offer);
   let answer = await window.p2pConnection.createAnswer();
   await window.p2pConnection.setLocalDescription(answer);
-  document.getElementById('local').value = JSON.stringify(window.p2pConnection.localDescription);
+  document.getElementById('webrtc-offer-answer').value = JSON.stringify(window.p2pConnection.localDescription);
 }
