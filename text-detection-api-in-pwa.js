@@ -30,7 +30,7 @@ async function uploadImageToDetectText(){
     let detector = new TextDetector();
     let results = await detector.detect(img);
     results.forEach(result => {
-        const box = result.boundingBox;
+        let box = result.boundingBox;
         ctx.strokeRect(box.x, box.y, box.width, box.height);
     });
 }
