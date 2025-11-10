@@ -1,11 +1,14 @@
-window.p2pConnection = new RTCPeerConnection();
-window.rtcVideoElement = document.getElementById('rtc-demo-video');
-window.p2pConnection.ontrack = e => window.rtcVideoElement.srcObject = e.streams[0];
-window.p2pConnection.onicecandidate = e => {
-  if (e.candidate) {console.log('ICE candidate:', e.candidate);}
-};
+function initP2P(){
+  window.p2pConnection = new RTCPeerConnection();
+  window.rtcVideoElement = document.getElementById('rtc-demo-video');
+  window.p2pConnection.ontrack = e => window.rtcVideoElement.srcObject = e.streams[0];
+  window.p2pConnection.onicecandidate = e => {
+    if (e.candidate) {console.log('ICE candidate:', e.candidate);}
+  };
+}
 
 async function startStreaming() {
+  initP2P();
   let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   window.rtcVideoElement.srcObject = stream;
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
@@ -15,6 +18,7 @@ async function startStreaming() {
 }
 
 async function answerAndConnect() {
+  initP2P();
   let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   window.rtcVideoElement.srcObject = stream;
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
