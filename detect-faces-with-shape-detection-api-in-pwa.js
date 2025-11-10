@@ -21,7 +21,7 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
     const { boundingBox, landmarks } = face;
     const scaleX = window.faceDetectionCanvas.width / window.faceDetectionVideo.videoWidth;
     const scaleY = window.faceDetectionCanvas.height / window.faceDetectionVideo.videoHeight;
-     ctx.strokeRect(boundingBox.x * scaleX, boundingBox.y * scaleY, boundingBox.width * scaleX, boundingBox.height * scaleY);
+    ctx.strokeRect(boundingBox.x * scaleX, boundingBox.y * scaleY, boundingBox.width * scaleX, boundingBox.height * scaleY);
     const points = (landmarks ?? []).flatMap(landmark => landmark.locations ?? []);
     points.forEach(point => {
       ctx.beginPath();
