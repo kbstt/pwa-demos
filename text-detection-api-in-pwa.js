@@ -2,13 +2,13 @@ async function uploadImageToDetectText(){
    if (!window.TextDetector) {
         alert('TextDetector API not supported in this browser.');
         return;
-    }
-    let file = await new Promise(resolve => {
-        let input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = () => resolve(input.files);
-        input.click();
+   }
+   let file = await new Promise(resolve => {
+       let fileInput = document.createElement('input');
+       fileInput.type = 'file';
+       fileInput.accept = 'image/*';
+       fileInput.onchange = () => resolve(fileInput.files[0]);
+       fileInput.click();
     });
     if (!file) {return};
     const img = new Image();
