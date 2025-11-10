@@ -19,7 +19,7 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
   let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
   let ctx = window.faceDetectionFeatureCanvas.getContext('2d');
   ctx.clearRect(0, 0, window.faceDetectionFeatureCanvas.width, window.faceDetectionFeatureCanvas.height);
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 3;
   ctx.strokeStyle = "#6beeff";
   ctx.fillStyle = "transparent";
   faces.forEach(face => {
