@@ -3,45 +3,47 @@ async function startFaceDetection() {
     alert("The Face Detector API is not available in your current browser");
     return;
   }
-  
-  let video = document.getElementById('face-detection-video');
-  let stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: "environment"}});
-  video.srcObject = stream;
-  video.play();
-  video.addEventListener('loadedmetadata', async function(){
-      let canvas = document.getElementById('face-detection-canvas');
-      let ctx = canvas.getContext('2d');
-      let faceDetector = new FaceDetector({ fastMode: true, maxDetectedFaces: 5 });
-
-      async function detectFaces() {
-        try {
-          let faces = await faceDetector.detect(canvas);
-          ctx.lineWidth = 2;
-          ctx.strokeStyle = 'lime';
-          ctx.fillStyle = 'red';
-    
-          for (const face of faces) {
-            let { boundingBox, landmarks } = face;
-            ctx.strokeRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
-            if (landmarks) {
-              for (let landmark of landmarks) {
-                let { locations } = landmark;
-                if (locations) {
-                  for (let point of locations) {
-                    ctx.beginPath();
-                    ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
-                    ctx.fill();
-                  }
-                }
-              }
-            }
-          }
-        } catch (err) {
-          console.error('Face detection failed:', err);
-        }
-        requestAnimationFrame(detectFaces);
-      }
-
-    detectFaces();
-  });
+  window.faceDetectionVideo = document.getElementById("face-detection-video");
+  window.faceDetectionCanvas = document.getElementById("face-detection-canvas");
+  window.faceDetectorInstance = new FaceDetector({ fastMode: true, maxDetectedFaces: 5 });
+  await initializeCameraStream();
+  drawCurrentFrameOnCanvasAndDetectFaces();
 }
+
+async function drawCurrentFrameOnCanvasAndDetectFaces(){
+  let ctx = window.faceDetectionCanvas.getContext('2d');
+  ctx.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
+  let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'lime';
+  ctx.fillStyle = 'red';
+  faces.forEach(function(face){
+    const { boundingBox, landmarks } = face;
+    ctx.strokeRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+    const points = (landmarks ?? []).flatMap(landmark => landmark.locations ?? []);
+    points.forEach(point => {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
+      ctx.fill();
+    });
+  });
+  requestAnimationFrame(drawCurrentFrameOnCanvasAndDetectFaces);
+};
+
+
+function initializeCameraStream(){
+  return new Promise(async function(resolve, reject){  
+     try {
+      let stream = await navigator.mediaDevices.getUserMedia({ video: {facingMode: "environment"}});
+      window.faceDetectionVideo.srcObject = stream;
+      window.faceDetectionVideo.play();
+      window.faceDetectionVideo.addEventListener('loadedmetadata', function(){
+        return resolve();
+      });
+    }
+    catch(err){
+      alert(err);
+      reject(err);
+    }
+  })
+};
