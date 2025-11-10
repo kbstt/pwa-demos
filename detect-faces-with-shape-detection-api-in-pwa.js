@@ -6,7 +6,7 @@ async function startFaceDetection() {
   window.faceDetectionVideo = document.getElementById("face-detection-video");
   window.faceDetectionCanvas = document.getElementById("face-detection-canvas");
   window.faceDetectionFeatureCanvas = document.getElementById("face-detection-features");
-  window.faceDetectorInstance = new FaceDetector({ fastMode: true, maxDetectedFaces: 5 });
+  window.faceDetectorInstance = new FaceDetector();
   await initializeCameraStream();
   drawCurrentFrameOnCanvasAndDetectFaces();
 }
