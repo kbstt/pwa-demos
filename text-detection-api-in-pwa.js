@@ -29,6 +29,7 @@ async function uploadImageToDetectText(){
     ctx.lineWidth = 2;
     let detector = new TextDetector();
     let results = await detector.detect(img);
+   console.log(results);
     results.forEach(result => {
         let box = result.boundingBox;
         ctx.strokeRect(box.x, box.y, box.width, box.height);
