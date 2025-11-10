@@ -18,6 +18,7 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
   ctx.strokeStyle = 'lime';
   ctx.fillStyle = 'red';
   faces.forEach(function(face){
+    console.log(face);
     const { boundingBox, landmarks } = face;
     ctx.strokeRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
     const points = (landmarks ?? []).flatMap(landmark => landmark.locations ?? []);
