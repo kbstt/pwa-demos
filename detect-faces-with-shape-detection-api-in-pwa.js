@@ -21,7 +21,7 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
   ctx.clearRect(0, 0, window.faceDetectionFeatureCanvas.width, window.faceDetectionFeatureCanvas.height);
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#6beeff";
-  ctx.fillStyle = "#ff4235";
+  ctx.fillStyle = "#6beeff";
   faces.forEach(face => {
     const { boundingBox, landmarks } = face;
     ctx.strokeRect(boundingBox.x, boundingBox.y,  boundingBox.width, boundingBox.height);
