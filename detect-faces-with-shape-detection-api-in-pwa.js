@@ -5,15 +5,18 @@ async function startFaceDetection() {
   }
   window.faceDetectionVideo = document.getElementById("face-detection-video");
   window.faceDetectionCanvas = document.getElementById("face-detection-canvas");
+  window.faceDetectionFeatureCanvas = document.getElementById("face-detection-features");
   window.faceDetectorInstance = new FaceDetector({ fastMode: true, maxDetectedFaces: 5 });
   await initializeCameraStream();
   drawCurrentFrameOnCanvasAndDetectFaces();
 }
 
 async function drawCurrentFrameOnCanvasAndDetectFaces(){
-  let ctx = window.faceDetectionCanvas.getContext('2d');
-  ctx.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
+  let ctx0 = window.faceDetectionCanvas.getContext('2d');
+  ctx0.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
   let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
+
+  let ctx = window.faceDetectionFeatureCanvas.getContext('2d');
   ctx.lineWidth = 2;
   ctx.strokeStyle = 'lime';
   ctx.fillStyle = 'red';
