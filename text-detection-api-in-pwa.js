@@ -21,8 +21,6 @@ async function uploadImageToDetectText(){
     canvas.width = img.width;
     canvas.height = img.height;
     canvas.style.position = "absolute";
-    canvas.style.left = "0";
-    canvas.style.top = "0";
     container.appendChild(canvas);
     let ctx = canvas.getContext('2d');
     ctx.strokeStyle = 'red';
