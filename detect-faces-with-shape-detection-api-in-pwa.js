@@ -1,4 +1,4 @@
-function startFaceDetection() {
+async function startFaceDetection() {
   if (!window.FaceDetector){
     alert("The Face Detector API is not available in your current browser");
     return;
