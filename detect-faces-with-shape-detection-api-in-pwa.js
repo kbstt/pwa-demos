@@ -30,7 +30,6 @@ async function drawCurrentFrameOnCanvasAndDetectFaces(){
   requestAnimationFrame(drawCurrentFrameOnCanvasAndDetectFaces);
 };
 
-
 function initializeCameraStream(){
   return new Promise(async function(resolve, reject){  
      try {
