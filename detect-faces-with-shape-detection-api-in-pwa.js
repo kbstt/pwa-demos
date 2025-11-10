@@ -4,7 +4,6 @@ async function startFaceDetection() {
     return;
   }
   window.faceDetectionVideo = document.getElementById("face-detection-video");
-  window.faceDetectionCanvas = document.getElementById("face-detection-canvas");
   window.faceDetectionFeatureCanvas = document.getElementById("face-detection-features");
   window.faceDetectorInstance = new FaceDetector();
   await initializeCameraStream();
@@ -13,11 +12,10 @@ async function startFaceDetection() {
 
 async function drawCurrentFrameOnCanvasAndDetectFaces(){
   //we draw the video stream on a canvas
- // window.faceDetectionCanvas.getContext('2d').drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
   let ctx = window.faceDetectionFeatureCanvas.getContext('2d');
   ctx.clearRect(0, 0, window.faceDetectionFeatureCanvas.width, window.faceDetectionFeatureCanvas.height);
-  ctx.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionCanvas.width, window.faceDetectionCanvas.height);
-  let faces = await window.faceDetectorInstance.detect(window.faceDetectionCanvas);
+  ctx.drawImage(window.faceDetectionVideo, 0, 0, window.faceDetectionFeatureCanvas.width, window.faceDetectionFeatureCanvas.height);
+  let faces = await window.faceDetectionFeatureCanvas.detect(window.faceDetectionFeatureCanvas);
   ctx.lineWidth = 2;
   ctx.strokeStyle = "#6beeff";
   ctx.fillStyle = "lime";
