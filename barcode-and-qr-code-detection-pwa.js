@@ -1,3 +1,12 @@
+function launchBarcodeScanner() {
+     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.BarcodeDetector){
+          alert("Your device does not support the Barcode Detection API. Try again on Chrome Desktop or Android");
+     }
+     else {
+          startDetection();
+     }
+}
+
 async function startDetection() {
      //we start the device's camera
      let video = document.getElementById('barcode-detection-video');
@@ -10,7 +19,9 @@ async function startDetection() {
      let barcodeDetector = new BarcodeDetector({formats: ["qr_code"] });
 
      video.addEventListener('loadedmetadata', async function(){
-        let canvas = document.getElementById('barcode-detection-canvas');
+        let canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
         let context = canvas.getContext('2d');
 
         let checkForQrCode = async function(){
