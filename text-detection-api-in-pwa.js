@@ -27,7 +27,6 @@ async function uploadImageToDetectText(){
     ctx.lineWidth = 2;
     let detector = new TextDetector();
     let results = await detector.detect(img);
-    console.log(results);
     let scaleX = img.width / img.naturalWidth;
     let scaleY = img.height / img.naturalHeight;
     results.forEach(result => {
