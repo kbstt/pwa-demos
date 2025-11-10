@@ -1,4 +1,4 @@
-function uploadImageToDetectText(){
+async function uploadImageToDetectText(){
    if (!window.TextDetector) {
         alert('TextDetector API not supported in this browser.');
         return;
