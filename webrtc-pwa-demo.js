@@ -1,5 +1,5 @@
 let pc = new RTCPeerConnection();
-let video = document.getElementById('video');
+let video = document.getElementById('rtc-demo-video');
 
 pc.ontrack = e => video.srcObject = e.streams[0];
 
