@@ -3,6 +3,9 @@ async function uploadImageToDetectText(){
         alert('TextDetector API not supported in this browser.');
         return;
    }
+
+   let container = document.getElementById("text-detector-result");
+   
    let file = await new Promise(resolve => {
        let fileInput = document.createElement('input');
        fileInput.type = 'file';
@@ -14,7 +17,6 @@ async function uploadImageToDetectText(){
     let img = new Image();
     img.src = URL.createObjectURL(file);
     await img.decode();
-    let container = document.getElementById("text-detector-result");
     container.innerHTML = "";
     container.appendChild(img);
     let canvas = document.createElement('canvas');
