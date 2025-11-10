@@ -1,5 +1,5 @@
 function uploadImageToDetectText(){
-   if (!window.TextDetector)) {
+   if (!window.TextDetector) {
         alert('TextDetector API not supported in this browser.');
         return;
     }
