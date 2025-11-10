@@ -20,10 +20,10 @@ async function startStreaming() {
 async function answerAndConnect() {
   initP2P();
   let offer = JSON.parse(document.getElementById('webrtc-offer-answer').value);
-  await window.p2pConnection.setRemoteDescription(offer);
+  console.log(offer);
   window.p2pConnection.addTransceiver('video', { direction: 'recvonly' });
   window.p2pConnection.addTransceiver('audio', { direction: 'recvonly' });
+  await window.p2pConnection.setRemoteDescription(offer);
   let answer = await window.p2pConnection.createAnswer();
   await window.p2pConnection.setLocalDescription(answer);
-  document.getElementById('webrtc-offer-answer').value = JSON.stringify(window.p2pConnection.localDescription);
 }
