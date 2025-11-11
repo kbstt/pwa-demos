@@ -1,5 +1,5 @@
 function toggleSpeechRecognition(){
-  if (!window.webkitSpeechRecognition && ! window.SpeechRecognition){
+  if (!window.webkitSpeechRecognition && !window.SpeechRecognition){
     alert("Your browser does not support the SpeechRecognition API");
   }
   else if (window.transcriptionInProgress){
