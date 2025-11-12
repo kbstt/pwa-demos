@@ -27,21 +27,25 @@ END:VCALENDAR
 
   const file = new File([icsContent], 'event.ics', { type: 'text/calendar' });
 
-  /*if (navigator.canShare && navigator.canShare({ files: [file] })) {
+  try {
     await navigator.share({
       title: 'Add to Calendar',
       text: 'Here’s an event you can add to your calendar!',
       files: [file],
     });
-  } else {*/
-    // fallback to download
-    const url = URL.createObjectURL(file);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'event.ics';
-    a.click();
-    URL.revokeObjectURL(url);
- /* }*/
+    return;
+  }
+  catch(err){
+    console.log(err);
+  }
+
+  // fallback to download
+  const url = URL.createObjectURL(file);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'event.ics';
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 function generateDummyCalendarEvent(){
