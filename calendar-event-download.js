@@ -43,3 +43,17 @@ END:VCALENDAR
     URL.revokeObjectURL(url);
   }
 }
+
+function generateDummyCalendarEvent(){
+  const now = new Date();
+  const startDate = new Date(now.getTime() + 2 * 60 * 60 * 1000); // 2 hours from now
+  const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // 1 hour after start
+
+  shareCalendarEvent({
+    title: 'Sample Meeting',
+    description: 'This is a sample calendar invite',
+    location: 'Zoom',
+    startDate: startDate,
+    endDate: endDate
+  });
+}
