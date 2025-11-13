@@ -25,25 +25,12 @@ END:VEVENT
 END:VCALENDAR
   `.trim();
 
-  const file = new File([icsContent], 'event.ics', { type: 'text/calendar' });
-
-  /*try {
-    await navigator.share({
-      title: 'Add to Calendar',
-      text: 'Here’s an event you can add to your calendar!',
-      files: [file],
-    });
-    return;
-  }
-  catch(err){
-    console.log(err);
-  }*/
-
-  // fallback to download
+  const fileName = 'event'+new Date().toISOString()+'.ics';
+  const file = new File([icsContent], fileName, { type: 'text/calendar' });
   const url = URL.createObjectURL(file);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'event.ics';
+  a.download = fileName;
   a.click();
   URL.revokeObjectURL(url);
 }
