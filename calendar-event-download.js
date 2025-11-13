@@ -27,7 +27,7 @@ END:VCALENDAR
 
   const file = new File([icsContent], 'event.ics', { type: 'text/calendar' });
 
-  try {
+  /*try {
     await navigator.share({
       title: 'Add to Calendar',
       text: 'Here’s an event you can add to your calendar!',
@@ -37,7 +37,7 @@ END:VCALENDAR
   }
   catch(err){
     console.log(err);
-  }
+  }*/
 
   // fallback to download
   const url = URL.createObjectURL(file);
