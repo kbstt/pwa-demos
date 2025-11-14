@@ -23,7 +23,7 @@ function setCookieFromInput(){
     let name = "test-cookie";
     let value = document.getElementById("cookie-demo-input").value;
     setCookie(name, value);
-    alert("Cookie saved");
+    alert("Cookie saved: "+value);
 }
 
 function getSavedCookie(){
