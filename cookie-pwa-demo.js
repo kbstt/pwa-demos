@@ -23,6 +23,7 @@ function setCookieFromInput(){
     let name = "test-cookie";
     let value = document.getElementById("cookie-demo-input").value;
     setCookie(name, value);
+    alert("Cookie saved");
 }
 
 function getSavedCookie(){
@@ -30,4 +31,5 @@ function getSavedCookie(){
     let value = getCookie(name);
     if (!value){alert("No cookie has been set yet");}
     document.getElementById("cookie-demo-input").value = value;
+    alert("Cookie retrieved: "+value);
 }
