@@ -1,8 +1,8 @@
 async function printPermission(permissionName, descriptor) {
     try {
       let permission = await navigator.permissions.query(Object.assign({name: permissionName}, descriptor));
-      let result = document.createElement("div");
-      result.innerHTML = permissionName+": "+permission.state;
+      let result = document.createElement("tr");
+      result.innerHTML = "<td>"+permissionName+"</td><td>"+permission.state+"</td>";
       window.permissionResultContainer.appendChild(result);
     } catch (error) {
        console.log(error);
