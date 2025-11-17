@@ -24,7 +24,7 @@ function initializePageVisibilityLog(){
   document.addEventListener(visibilityChange, function(){
     var timeBadge = new Date().toTimeString().split(' ')[0];
     var newState = document.createElement('div');
-    newState.innerHTML = "<span>" + timeBadge + "</span><div>Page visibility changed to </div><pre>' + (document[hidden] ? 'hidden' : 'visible') + '</pre>';
+    newState.innerHTML = "<span>" + timeBadge + "</span><div>Page visibility changed to </div><pre>" + (document[hidden] ? 'hidden' : 'visible') + "</pre>";
     container.appendChild(newState);
   }, false);
 
