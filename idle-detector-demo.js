@@ -7,7 +7,7 @@ function startIdleDetector() {
   try {
     let idleDetector = new IdleDetector({ threshold: 20 });
     idleDetector.addEventListener('change', function(){
-       alert(idleDetector.state);
+       alert("userState: "+idleDetector.userState+" / screenState: "+idleDetector.screenState);
     });
     idleDetector.start();
   } 
