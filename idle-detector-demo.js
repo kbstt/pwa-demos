@@ -5,6 +5,8 @@ function startIdleDetector() {
   }
   
   try {
+    let permission = await IdleDetector.requestPermission();
+    if (permission !== "granted"){throw "Idle Detector permission denied";}
     let idleDetector = new IdleDetector({ threshold: 60 });
     idleDetector.addEventListener('change', function(){
        alert("userState: "+idleDetector.userState+" / screenState: "+idleDetector.screenState);
@@ -12,6 +14,6 @@ function startIdleDetector() {
     idleDetector.start();
   } 
   catch (error) {
-    alert('Idle Detection error:' + error);
+    alert(error);
   }
 }
