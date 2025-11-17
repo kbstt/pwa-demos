@@ -20,8 +20,8 @@ function queryPermissions(){
     });
 }
 
-function updatePermission(permissionName, permission.state){
-   document.getElementById(permissionName+"-p").innerHTML = permission.state;
+function updatePermission(permissionName, permissionState){
+   document.getElementById(permissionName+"-p").innerHTML = permissionState;
 }
 
 function initializePermissionTable(){
