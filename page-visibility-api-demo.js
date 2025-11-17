@@ -23,7 +23,7 @@ function initializePageVisibilityLog(){
   
   document.addEventListener(visibilityChange, function(){
     var timeBadge = new Date().toTimeString().split(' ')[0];
-    var newState = document.createElement('p');
+    var newState = document.createElement('div');
     newState.innerHTML = '' + timeBadge + ' Page visibility changed to ' + (document[hidden] ? 'hidden' : 'visible') + '.';
     container.appendChild(newState);
   }, false);
