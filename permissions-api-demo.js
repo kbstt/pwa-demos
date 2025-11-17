@@ -32,4 +32,3 @@ function initializePermissionTable(){
 }
 
 window.addEventListener("load", initializePermissionTable);
-setTimeout(initializePermissionTable, 500);
