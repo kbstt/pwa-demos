@@ -37,6 +37,7 @@ function initializePageLifecycleLog(){
 
 function logStateChange(nextState) {
   var prevState = window.currentPageLifeCycleState;
+  if (nextState === "loaded"){prevState = "loading";}
   if (nextState !== prevState) {
     var timeBadge = new Date().toTimeString().split(' ')[0];
     var newLog = document.createElement('div');
