@@ -1,4 +1,4 @@
-function startIdleDetector() {
+async function startIdleDetector() {
   try {
     if (!window.IdleDetector) {throw "Idle Detection API is not available in your browser";}
     let permission = await IdleDetector.requestPermission();
