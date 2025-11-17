@@ -1,6 +1,6 @@
 window.PermissionsList = ["geolocation", "notifications", "camera", "microphone", "background-sync", "ambient-light-sensor", "accelerometer", "gyroscope", "magnetometer"]
     
-async function printPermission(permissionName, descriptor) {
+async function getPermission(permissionName, descriptor) {
     try {
         let permission = await navigator.permissions.query(Object.assign({name: permissionName}, descriptor));
         updatePermission(permissionName, permission.state);
@@ -16,7 +16,7 @@ async function printPermission(permissionName, descriptor) {
 
 function queryPermissions(){
     window.PermissionsList.forEach(function(permission){
-        printPermission(permission);
+        getPermission(permission);
     });
 }
 
