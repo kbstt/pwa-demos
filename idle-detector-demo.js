@@ -3,7 +3,7 @@ async function startIdleDetector() {
     if (!window.IdleDetector) {throw "Idle Detection API is not available in your browser";}
     let permission = await IdleDetector.requestPermission();
     if (permission !== "granted"){throw "Idle Detector permission denied";}
-    let idleDetector = new IdleDetector({ threshold: 60 });
+    let idleDetector = new IdleDetector({ threshold: 30 });
     idleDetector.addEventListener('change', function(){
        alert("userState: "+idleDetector.userState+" / screenState: "+idleDetector.screenState);
     });
