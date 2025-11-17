@@ -1,8 +1,32 @@
-window.PermissionsList = ["geolocation", "notifications", "camera", "microphone", "background-sync", "ambient-light-sensor", "accelerometer", "gyroscope", "magnetometer"]
-    
-async function getPermission(permissionName, descriptor) {
+window.PermissionsList = [
+  "accelerometer",
+  "ambient-light-sensor",
+  "background-sync",
+  "bluetooth",
+  "camera",
+  "clipboard",
+  "clipboard-read",
+  "clipboard-write",
+  "geolocation",
+  "gyroscope",
+  "hid",
+  "magnetometer",
+  "microphone",
+  "midi",
+  "nfc",
+  "notifications",
+  "payment-handler",
+  "periodic-background-sync",
+  "persistent-storage",
+  "push",
+  "serial",
+  "speaker-selection",
+  "usb"
+];
+
+async function getPermission(permissionName) {
     try {
-        let permission = await navigator.permissions.query(Object.assign({name: permissionName}, descriptor));
+        let permission = await navigator.permissions.query({name: permissionName});
         updatePermission(permissionName, permission.state);
         
         permission.addEventListener('change', function (e) {
