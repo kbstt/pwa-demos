@@ -28,9 +28,6 @@ function initializePageVisibilityLog(){
     container.appendChild(newState);
   }, false);
 
-  if (hidden in document) {
-    document.getElementById('status').innerHTML = document[hidden] ? 'hidden' : 'visible';
-  }
 }
 
 window.addEventListener("load", initializePageVisibilityLog);
