@@ -11,7 +11,7 @@ function getState() {
 window.currentPageLifeCycleState = getState();
 
 function initializePageLifecycleLog(){
-
+  logStateChange("loaded");
   ["pageshow", "focus", "blur", "visibilitychange", "resume"].forEach(function (type) {
     window.addEventListener(type, function(){
       logStateChange(getState());
