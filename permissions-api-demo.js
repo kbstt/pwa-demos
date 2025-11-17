@@ -27,7 +27,7 @@ function updatePermission(permissionName, permissionState){
 function initializePermissionTable(){
     let container = document.getElementById("permission-results");
     window.PermissionsList.forEach(function(permission){
-        container.innerHTML += `<tr><td>`+permission+`</td><td id="`+permission+`-p"><span class="unknown">unknown</span></td></tr>`
+        container.innerHTML += `<tr><td>`+permission+`</td><td id="`+permission+`-p"><span>unknown</span></td></tr>`
     });
 }
 
