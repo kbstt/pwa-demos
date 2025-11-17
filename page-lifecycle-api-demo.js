@@ -3,7 +3,7 @@ function getState() {
     return "hidden";
   }
   if (document.hasFocus()) {
-    return "focused;
+    return "focused";
   }
   return "not focused";
 };
