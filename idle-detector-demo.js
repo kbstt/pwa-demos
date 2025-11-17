@@ -1,10 +1,6 @@
 function startIdleDetector() {
-  if (!window.IdleDetector) {
-    alert("Idle Detection API is not available in your browser");
-    return;
-  }
-  
   try {
+    if (!window.IdleDetector) {throw "Idle Detection API is not available in your browser";}
     let permission = await IdleDetector.requestPermission();
     if (permission !== "granted"){throw "Idle Detector permission denied";}
     let idleDetector = new IdleDetector({ threshold: 60 });
