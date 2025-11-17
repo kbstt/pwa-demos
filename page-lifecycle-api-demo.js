@@ -12,17 +12,17 @@ window.currentPageLifeCycleState = getState();
 
 function initializePageLifecycleLog(){
 
-  ['pageshow', 'focus', 'blur', 'visibilitychange', 'resume'].forEach(function (type) {
+  ["pageshow", "focus", "blur", "visibilitychange", "resume"].forEach(function (type) {
     window.addEventListener(type, function(){
       logStateChange(getState());
     }, {capture: true});
   });
 
-  window.addEventListener('freeze', function(){
+  window.addEventListener("freeze", function(){
     logStateChange("frozen");
   }, {capture: true});
   
-  window.addEventListener('pagehide', function(){
+  window.addEventListener("pagehide", function(){
     if (event.persisted) {
       // If the event's persisted property is `true` the page is about
       // to enter the page navigation cache, which is also in the frozen state.
@@ -33,13 +33,6 @@ function initializePageLifecycleLog(){
       logStateChange("terminated");
     }
   }, {capture: true});
-  
-  document.addEventListener(visibilityChange, function(){
-    var timeBadge = new Date().toTimeString().split(' ')[0];
-    var newState = document.createElement('div');
-    newState.innerHTML = "<span>" + timeBadge + "</span><div>Page visibility changed to </div><pre>" + (document[hidden] ? 'hidden' : 'visible') + "</pre>";
-    container.appendChild(newState);
-  }, false);
 }
 
 function logStateChange(nextState) {
