@@ -21,13 +21,13 @@ function queryPermissions(){
 }
 
 function updatePermission(permissionName, permissionState){
-   document.getElementById(permissionName+"-p").innerHTML = permissionState;
+   document.getElementById(permissionName+"-p").innerHTML = `<span class="`+permissionState+`">`+permissionState+`</span>`;
 }
 
 function initializePermissionTable(){
     let container = document.getElementById("permission-results");
     window.PermissionsList.forEach(function(permission){
-        container.innerHTML += `<tr><td>`+permission+`</td><td id="`+permission+`-p"><pre>unknown</pre></td></tr>`
+        container.innerHTML += `<tr><td>`+permission+`</td><td id="`+permission+`-p"><span class="unknown">unknown</span></td></tr>`
     });
 }
 
