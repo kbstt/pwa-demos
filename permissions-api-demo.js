@@ -9,9 +9,7 @@ window.PermissionsList = [
   "accelerometer",
   "gyroscope",
   "magnetometer",
-  "ambient-light-sensor",
   "background-sync",
-  "periodic-background-sync",
   "midi"
 ];
 
