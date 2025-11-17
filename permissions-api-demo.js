@@ -1,27 +1,18 @@
 window.PermissionsList = [
-  "accelerometer",
-  "ambient-light-sensor",
-  "background-sync",
-  "bluetooth",
+  "geolocation",
+  "notifications",
+  "persistent-storage",
   "camera",
-  "clipboard",
+  "microphone",
   "clipboard-read",
   "clipboard-write",
-  "geolocation",
+  "accelerometer",
   "gyroscope",
-  "hid",
   "magnetometer",
-  "microphone",
-  "midi",
-  "nfc",
-  "notifications",
-  "payment-handler",
+  "ambient-light-sensor",
+  "background-sync",
   "periodic-background-sync",
-  "persistent-storage",
-  "push",
-  "serial",
-  "speaker-selection",
-  "usb"
+  "midi"
 ];
 
 async function getPermission(permissionName) {
