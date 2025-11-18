@@ -1,4 +1,4 @@
-function connectToUSBDevice(){
+async function connectToUSBDevice(){
   try {
     let log = document.getElementById('usb-log');
     let device = await navigator.usb.requestDevice({ filters: [{}] });
