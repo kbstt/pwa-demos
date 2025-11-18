@@ -14,5 +14,9 @@ async function startCasting(){
 }
 
 function broadcastVideo(videoUrl){
+  if (!window.presentationConnection){
+    alert("You must cast first before playing videos");
+    return;
+  }
   presentationConnection.send(videoUrl);
 }
