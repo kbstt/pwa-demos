@@ -4,11 +4,15 @@ async function startCasting(){
     return;
   } 
   try {
-    const request = new PresentationRequest(["http://127.0.0.1:5000/features/push-notifications"]);
+    const request = new PresentationRequest([window.location.origin+"/sample-cast-page"]);
     presentationConnection = await request.start();
   } 
   catch (err) {
       alert("Error starting presentation");
       console.error(err);
   }
+}
+
+function broadcastVideo(videoUrl){
+  presentationConnection.send(videoUrl);
 }
