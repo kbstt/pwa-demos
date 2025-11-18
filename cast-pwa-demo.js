@@ -9,7 +9,7 @@ async function setWebcam() {
   }
 }
 
-function startCasting(){
+async function startCasting(){
   if (!("presentation" in navigator)) {
     alert ("Presentation API not supported");
     return;
