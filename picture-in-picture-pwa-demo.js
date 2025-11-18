@@ -5,14 +5,14 @@ async function setWebcam() {
     video.srcObject = stream;
   } 
   catch (err) {
-     console.error(err);
+     alert("Couldn't access your camera");
   }
 }
 
 async function startPiP() {
   const video = document.getElementById("pip-demo-feed");
   if (!document.pictureInPictureEnabled) {
-      alert("Picture-in-Picture is not supported in this browser.");
+      alert("Picture-in-Picture not supported in this browser.");
       return;
   }
   
@@ -25,6 +25,6 @@ async function startPiP() {
     }
   }
   catch (err) {
-     console.error(err);
+     alert("Error enabling picture-in-picture");
   }
 }
