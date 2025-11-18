@@ -10,7 +10,7 @@ async function startCasting(){
   try {
     const request = new PresentationRequest([window.location.origin+"/sample-cast-page"]);
     presentationConnection = await request.start();
-    presentationConnection.onclose = () => { presentationConnection = null;}
+    presentationConnection.onterminate = () => { presentationConnection = null;}
   } 
   catch (err) {
       alert("Error starting presentation");
@@ -24,6 +24,7 @@ function stopCasting(){
     return;
   }
   presentationConnection.terminate();  
+  presentationConnection = null;
 }
 
 function broadcastVideo(videoUrl){
