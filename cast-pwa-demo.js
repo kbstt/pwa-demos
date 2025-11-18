@@ -20,14 +20,15 @@ async function startCasting(){
   }
 
   try {
-    const request = new PresentationRequest([window.location.href]);
+    const streamUrl = URL.createObjectURL(window.videoSrcElement.srcObject);
+    const request = new PresentationRequest([streamUrl]);
     presentationConnection = await request.start();
     presentationConnection.send(JSON.stringify({ type: "camera" }));
-    const streamUrl = URL.createObjectURL(window.videoSrcElement.srcObject);
     presentationConnection.send(JSON.stringify({ type: "stream", url: streamUrl }));
   } 
   catch (err) {
       alert("Error starting presentation");
+      alert(err);
       console.error();
   }
 }
