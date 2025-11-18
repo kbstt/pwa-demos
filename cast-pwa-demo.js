@@ -20,7 +20,7 @@ async function startCasting(){
   }
 
   try {
-    const request = new PresentationRequest(['casting.html']);
+    const request = new PresentationRequest([window.location.href]);
     presentationConnection = await request.start();
     presentationConnection.send(JSON.stringify({ type: "camera" }));
     const streamUrl = URL.createObjectURL(window.videoSrcElement.srcObject);
