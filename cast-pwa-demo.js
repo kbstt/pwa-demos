@@ -1,6 +1,6 @@
 async function setWebcam() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true});
     window.videoSrcElement = document.getElementById("cast-demo-feed");
     window.videoSrcElement.srcObject = stream;
   } 
