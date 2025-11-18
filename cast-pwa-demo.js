@@ -3,6 +3,10 @@ async function startCasting(){
     alert ("Presentation API not supported");
     return;
   } 
+  if (window.presentationConnection){
+    alert("You are already casting");
+    return;
+  }
   try {
     const request = new PresentationRequest([window.location.origin+"/sample-cast-page"]);
     presentationConnection = await request.start();
