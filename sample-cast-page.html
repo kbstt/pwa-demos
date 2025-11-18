@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>Presentation Video</title>
+	<style>
+	body { margin: 0; background: black; display: flex; justify-content: center; align-items: center; height: 100vh; }
+	video { width: 80%; height: auto; }
+	</style>
+	</head>
+	<body>
+	<video id="video" controls autoplay muted></video>
+
+	<script>
+		if (navigator.presentation && navigator.presentation.receiver) {
+			navigator.presentation.receiver.connectionList
+				.then((connList) => {
+				// connList is a PresentationConnectionList
+				connList.connections.forEach((connection) => {
+					setupConnection(connection);
+				});
+
+				// Listen for new incoming connections
+				connList.onconnectionavailable = (evt) => {
+					setupConnection(evt.connection);
+				};
+				})
+				.catch((err) => {
+				console.error('Error getting connection list:', err);
+				});
+			} else {
+			console.warn('Not running as a Presentation API receiver');
+			}
+
+      function setupConnection(connection) {
+        connection.addEventListener('message', (e) => {
+          console.log('Received message:', e.data);
+          // e.g., play video
+          const video = document.getElementById('video');
+          video.src = e.data;
+      	video.load();
+          video.play().catch((err) => console.error('Play error:', err));
+        });
+      }
+		</script>
+	</body>
+</html>
