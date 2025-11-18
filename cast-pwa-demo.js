@@ -13,6 +13,15 @@ async function startCasting(){
   }
 }
 
+function stopCasting(){
+  if (!window.presentationConnection){
+    alert("You must cast first before you can stop casting");
+    return;
+  }
+  presentationConnection.terminate();
+  presentationConnection = null;
+}
+
 function broadcastVideo(videoUrl){
   if (!window.presentationConnection){
     alert("You must cast first before playing videos");
