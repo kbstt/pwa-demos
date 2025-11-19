@@ -13,9 +13,7 @@ async function startCasting(){
     presentationConnection.onterminate = () => { presentationConnection = null;}
   } 
   catch (err) {
-      alert("Error starting presentation");
       alert(err);
-      console.error(err);
   }
 }
 
