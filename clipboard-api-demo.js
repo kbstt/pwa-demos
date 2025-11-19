@@ -1,7 +1,12 @@
 async function copyToClipboard() {
-  let text = "Hello from Clipboard API!"
-  await navigator.clipboard.writeText(text);
-  alert("Copied text: "+text);
+  try {
+    let text = "Hello from Clipboard API!"
+    await navigator.clipboard.writeText(text);
+    alert("Copied text: "+text);
+  }
+  catch(err){
+    alert(err);
+  }
 }
 
 async function pasteFromClipboard() {
