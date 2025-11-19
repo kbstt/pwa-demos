@@ -83,5 +83,3 @@ async function initWebGPU() {
 
   device.queue.submit([commandEncoder.finish()]);
 }
-
-initWebGPU();
