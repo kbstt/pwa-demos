@@ -85,7 +85,10 @@ async function initWebGPU2() {
 }
 
 async function initWebGPU() {
-  if (!navigator.gpu) return alert("WebGPU not supported.");
+   if (!navigator.gpu) {
+    alert("WebGPU is not supported in this browser.");
+    return;
+  }
 
   const canvas = document.getElementById("gpuCanvas");
   const adapter = await navigator.gpu.requestAdapter();
