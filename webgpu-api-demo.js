@@ -1,15 +1,14 @@
  async function initWebGPU() {
             const canvas = document.getElementById('gpuCanvas');
-            const statusDiv = document.getElementById('status');
 
             if (!navigator.gpu) {
-                statusDiv.innerHTML = '<span class="error">WebGPU is not supported in this browser.</span>';
+                alert('WebGPU is not supported in this browser.');
                 return;
             }
 
             const adapter = await navigator.gpu.requestAdapter();
             if (!adapter) {
-                statusDiv.innerHTML = '<span class="error">Failed to get WebGPU adapter.</span>';
+                alert('Failed to get WebGPU adapter.');
                 return;
             }
             const device = await adapter.requestDevice();
@@ -230,8 +229,6 @@
                 ]);
             }
 
-            statusDiv.textContent = "WebGPU Running - Rotating 3D Cube";
-
             function frame() {
                 const now = Date.now() / 1000;
                 
@@ -284,4 +281,4 @@
             }
 
             requestAnimationFrame(frame);
-}
+        }
