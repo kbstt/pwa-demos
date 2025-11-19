@@ -1,13 +1,14 @@
 function startDrag(e) {
-  this.ontouchmove = this.onmspointermove = moveDrag;
+  if (e.preventDefault) e.preventDefault(); 
 
-  this.ontouchend = this.onmspointerup = function () {
-    this.ontouchmove = this.onmspointermove = null;
-    this.ontouchend = this.onmspointerup = null;
+  this.onmousemove = this.ontouchmove = this.onmspointermove = moveDrag;
+
+  this.onmouseup = this.ontouchend = this.onmspointerup = function () {
+    this.onmousemove = this.ontouchmove = this.onmspointermove = null;
+    this.onmouseup = this.ontouchend = this.onmspointerup = null;
   }
 
   var pos = [this.offsetLeft, this.offsetTop];
-  var that = this;
   var origin = getCoors(e);
 
   function moveDrag(e) {
@@ -35,7 +36,8 @@ function startDrag(e) {
 
 var elements = document.querySelectorAll('.draggable-box');
 [].forEach.call(elements, function (element) {
-  element.ontouchstart = element.onmspointerdown = startDrag;
+  // 4. Add 'onmousedown' to the initialization
+  element.onmousedown = element.ontouchstart = element.onmspointerdown = startDrag;
 });
 
 document.ongesturechange = function () {
