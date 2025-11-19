@@ -1,4 +1,8 @@
 async function connectToUSBDevice(){
+  if (!navigator.usb){
+    alert("The WebUSB API is not supported in your browser");
+    return;
+  }
   try {
     let log = document.getElementById('usb-log');
     let device = await navigator.usb.requestDevice({ filters: [{}] });
