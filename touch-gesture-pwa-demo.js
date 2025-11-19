@@ -34,11 +34,15 @@ function startDrag(e) {
   }
 }
 
-var elements = document.querySelectorAll('.draggable-box');
-[].forEach.call(elements, function (element) {
-  element.onmousedown = element.ontouchstart = element.onmspointerdown = startDrag;
-});
-
-document.ongesturechange = function () {
-  return false;
+function initializeDragging(){
+  var elements = document.querySelectorAll('.draggable-box');
+  [].forEach.call(elements, function (element) {
+    element.onmousedown = element.ontouchstart = element.onmspointerdown = startDrag;
+  });
+  
+  document.ongesturechange = function () {
+    return false;
+  }
 }
+
+window.addEventListener("load", initializeDragging);
