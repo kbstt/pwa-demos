@@ -1,23 +1,26 @@
 function startDrag(e) {
-  if (e.preventDefault) { e.preventDefault();}
+  var targetElement = this; 
 
-  this.onmousemove = this.ontouchmove = this.onmspointermove = moveDrag;
+  if (e.preventDefault) { e.preventDefault(); }
 
-  this.onmouseup = this.ontouchend = this.onmspointerup = function () {
-    this.onmousemove = this.ontouchmove = this.onmspointermove = null;
-    this.onmouseup = this.ontouchend = this.onmspointerup = null;
-  }
+  document.onmousemove = document.ontouchmove = document.onmspointermove = moveDrag;
 
-  var pos = [this.offsetLeft, this.offsetTop];
+  document.onmouseup = document.ontouchend = document.onmspointerup = function () {
+    document.onmousemove = document.ontouchmove = document.onmspointermove = null;
+    document.onmouseup = document.ontouchend = document.onmspointerup = null;
+  };
+
+  var pos = [targetElement.offsetLeft, targetElement.offsetTop];
   var origin = getCoors(e);
 
   function moveDrag(e) {
     var currentPos = getCoors(e);
     var deltaX = currentPos[0] - origin[0];
     var deltaY = currentPos[1] - origin[1];
-    this.style.left = (pos[0] + deltaX) + 'px';
-    this.style.top = (pos[1] + deltaY) + 'px';
-    return false; // cancels scrolling
+    
+    targetElement.style.left = (pos[0] + deltaX) + 'px';
+    targetElement.style.top = (pos[1] + deltaY) + 'px';
+    return false; 
   }
 
   function getCoors(e) {
@@ -39,7 +42,7 @@ function initializeDragging(){
   [].forEach.call(elements, function (element) {
     element.onmousedown = element.ontouchstart = element.onmspointerdown = startDrag;
   });
-  
+   
   document.ongesturechange = function () {
     return false;
   }
