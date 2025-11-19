@@ -1,6 +1,6 @@
 async function copyToClipboard() {
   let text = "Hello from Clipboard API!"
-  await navigator.clipboard.writeText();
+  await navigator.clipboard.writeText(text);
   alert("Copied text: "+text);
 }
 
