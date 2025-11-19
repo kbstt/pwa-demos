@@ -5,5 +5,5 @@ async function estimateStorageQuotas(){
   }
   let estimate = await navigator.storage.estimate();
   let percent = (estimate.usage * 100 / estimate.quota).toFixed(0);
-  alert("usage: "+estimate.usage+", quota: "+estimate.quota +" ("+percent+"%)";
+  alert("usage: "+estimate.usage+", quota: "+estimate.quota +" ("+percent+"%)");
 }
