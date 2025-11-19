@@ -1,7 +1,7 @@
 function installApp(){
   if (!navigator.install) {return; } // API not supported
   try {
-    //You can install your current domain or any other PWA with a manifest
+    //You can install the current domain or any other PWA with a manifest
     const installUrl = "https://progressier.com/login";
     await navigator.install(installUrl);
   } 
