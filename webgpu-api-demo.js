@@ -45,6 +45,7 @@ async function initWebGPU() {
 
   // Pipeline
   const pipeline = device.createRenderPipeline({
+    layout: "auto",
     vertex: {
       module: shaderModule,
       entryPoint: "vs_main",
