@@ -14,6 +14,7 @@ async function startCasting(){
   } 
   catch (err) {
       alert("Error starting presentation");
+      alert(err);
       console.error(err);
   }
 }
