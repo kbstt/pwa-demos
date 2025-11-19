@@ -1,5 +1,5 @@
 function startDrag(e) {
-  if (e.preventDefault) e.preventDefault(); 
+  if (e.preventDefault) { e.preventDefault();}
 
   this.onmousemove = this.ontouchmove = this.onmspointermove = moveDrag;
 
@@ -36,7 +36,6 @@ function startDrag(e) {
 
 var elements = document.querySelectorAll('.draggable-box');
 [].forEach.call(elements, function (element) {
-  // 4. Add 'onmousedown' to the initialization
   element.onmousedown = element.ontouchstart = element.onmspointerdown = startDrag;
 });
 
