@@ -5,6 +5,11 @@ async function copyToClipboard() {
 }
 
 async function pasteFromClipboard() {
-  let text = await navigator.clipboard.readText();
-  alert("Pasted text: " + text);
+  try {
+    let text = await navigator.clipboard.readText();
+    alert("Pasted text: " + text);
+  }
+  catch(err){
+    alert(err);
+  }
 }
