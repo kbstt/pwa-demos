@@ -54,7 +54,7 @@ function draftSms(){
 
 async function copySmsBodyToClipboard(){
    await navigator.clipboard.writeText(getSmsBody());
-   alert("SMS text copied. Now send it yourself");
+   alert("SMS text copied. Now send it yourself!");
 }
 
 function generateSmsTxt(){
