@@ -35,6 +35,7 @@ async function startListeningToSMS() {
 
 function generateRandomCode(){
   window.randomCode = Math.floor(100000 + Math.random() * 900000);
+  return window.randomCode;
 }
 
 function getSmsBody(){
