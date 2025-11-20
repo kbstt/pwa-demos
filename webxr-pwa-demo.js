@@ -23,14 +23,6 @@ async function startSession(mode) {
   const sessionOptions = {
     optionalFeatures: ['local-floor', 'bounded-floor']
   };
-
-  // If AR, ask for DOM Overlay
-  if (mode === 'immersive-ar') {
-     sessionOptions.optionalFeatures.push('dom-overlay');
-     sessionOptions.domOverlay = {
-        root: document.body
-     };
-  }
   
   try {
     xrSession = await navigator.xr.requestSession(mode, sessionOptions);
