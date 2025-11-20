@@ -9,14 +9,14 @@ async function startARDemo() {
   if (!navigator.xr) { alert("Your browser does not support the WebXR API"); return; }
   let arSupported = await navigator.xr.isSessionSupported('immersive-ar');
   if (!arSupported) { alert("Your browser does not support AR"); return; }
-  startSession('immersive-vr');
+  startSession('immersive-ar');
 }
 
 async function startVRDemo() {
   if (!navigator.xr) { alert("Your browser does not support the WebXR API"); return; }
   let vrSupported = await navigator.xr.isSessionSupported('immersive-vr');
   if (!vrSupported) { alert("Your browser does not support VR"); return; }
-  startSession('immersive-ar');
+  startSession('immersive-vr');
 }
 
 async function startSession(mode) {
