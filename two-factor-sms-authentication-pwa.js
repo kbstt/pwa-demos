@@ -4,7 +4,10 @@ async function startListeningToSMS() {
     return;
   }
 
+  let btn = document.getElementById("listening-button");
+  
   try {
+    btn.classList.add("listening");
     let ac = new AbortController();
     let content = await navigator.credentials.get({
       otp: { transport: ["sms"] },
@@ -19,6 +22,7 @@ async function startListeningToSMS() {
     }
    } 
   catch (err) {
+      btn.classList.remove("listening");
       console.error(err);
       if (err.name === 'AbortError') {
           alert("Listening stopped (Aborted).");
