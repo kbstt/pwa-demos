@@ -15,7 +15,10 @@ async function startListeningToSMS() {
     });
 
     if (content && content.code) {
-      alert("Code detected from your SMS: "+content.code);
+     //alert("Code detected from your SMS: "+content.code);
+      let el2 = document.createElement('div');
+      el2.innerHTML = content.code;
+      document.getElementById("demo").appendChild(el2);
     }
     else {
       alert("No code detected in your SMS");
