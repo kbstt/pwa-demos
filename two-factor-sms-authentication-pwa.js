@@ -4,10 +4,10 @@ async function startListeningToSMS() {
     return;
   }
 
-  let btn = document.getElementById("listening-button");
+  let btn = document.getElementById("listening-button"); //for UI purposes only
   
   try {
-    btn.classList.add("listening");
+    btn.classList.add("listening"); //for UI purposes only
     let ac = new AbortController();
     let content = await navigator.credentials.get({
       otp: { transport: ["sms"] },
@@ -22,7 +22,7 @@ async function startListeningToSMS() {
     }
    } 
   catch (err) {
-      btn.classList.remove("listening");
+      btn.classList.remove("listening"); //for UI purposes only
       console.error(err);
       if (err.name === 'AbortError') {
           alert("Listening stopped (Aborted).");
