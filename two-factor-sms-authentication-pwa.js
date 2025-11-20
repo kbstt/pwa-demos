@@ -45,7 +45,7 @@ function getSmsBody(){
 function draftSms(){
   let body = getSmsBody();
   let link = "sms:?body=" + encodeURIComponent(body);
-  window.open(link, "_blank);
+  window.open(link, "_blank");
 }
 
 async function copySmsBodyToClipboard(){
