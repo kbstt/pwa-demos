@@ -12,7 +12,7 @@ async function startVRDemo() {
   startSession('immersive-vr');
 }
 
-function startARDemo() {
+async function startARDemo() {
   if (!navigator.xr) { alert("Your browser does not support the WebXR API"); return; }
   let vrSupported = await navigator.xr.isSessionSupported('immersive-vr');
   if (!vrSupported) { alert("Your browser does not support VR"); return; }
