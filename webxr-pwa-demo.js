@@ -54,6 +54,10 @@ async function startSession(mode) {
 function onSessionEnd() {
   xrSession = null;
   gl = null;
+  xrRefSpace = null;
+  shaderProgram = null;
+  programInfo = null;
+  buffers = null;
 }
 
 function onXRFrame(t, frame) {
@@ -91,14 +95,14 @@ function onXRFrame(t, frame) {
 function drawScene(projectionMatrix, viewMatrix) {
     gl.useProgram(shaderProgram);
 
-    // Create a Model Matrix (Identity - cube stays at 0,0,0)
-    // For a panorama effect in VR, we draw a giant cube around the user.
-    // For AR, we draw a small cube in front of the user.
+    const scale = (mode === 'immersive-ar') ? 0.2 : 1.0;
+
+    // Model Matrix: [ScaleX, 0, 0, 0,  0, ScaleY, 0, 0,  0, 0, ScaleZ, 0,  Tx, Ty, Tz, 1]
     const modelMatrix = new Float32Array([
-        1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, 1, 0,
-        0, 0, -2, 1, // Translate Z -2 (2 meters in front)
+        scale, 0, 0, 0,
+        0, scale, 0, 0,
+        0, 0, scale, 0,
+        0, 0, -2, 1, // Position: 2 meters in front (Z = -2)
     ]);
 
     // Pass Uniforms
