@@ -57,5 +57,4 @@ function copyFromTextarea(event){
   if (!content){return;}
   element.select();
   navigator.clipboard.writeText(content);
-  alert("Copied! Now paste it in your other tab.");
 }
