@@ -54,7 +54,7 @@ async function finalizeConnection() {
 function copyFromTextarea(event){
   let element = event.currentTarget;
   let content = element.value;
-  if (!content)(return;}
+  if (!content){return;}
   element.select();
   navigator.clipboard.writeText(content);
   alert("Copied! Now paste it in your other tab.");
