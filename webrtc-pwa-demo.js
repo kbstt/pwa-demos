@@ -28,7 +28,7 @@ async function startStreaming() {
 
   const offer = await window.p2pConnection.createOffer();
   await window.p2pConnection.setLocalDescription(offer);
- 
+  document.getElementById("verify-answer").classList.remove("disabled");
 }
 
 // --- RECEIVER FUNCTION ---
