@@ -9,7 +9,6 @@ function initP2P() {
 // --- SENDER FUNCTION ---
 async function startStreaming() {
   initP2P();
-  document.getElementById("create-answer").classList.add("disabled");
   const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   window.rtcVideoElement.srcObject = stream;
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
@@ -24,6 +23,8 @@ async function startStreaming() {
   const offer = await window.p2pConnection.createOffer();
   await window.p2pConnection.setLocalDescription(offer);
   document.getElementById("verify-answer").classList.remove("disabled");
+  document.getElementById("create-offer").classList.add("disabled");
+  document.getElementById("offer-box").classList.remove("disabled");
 }
 
 // --- RECEIVER FUNCTION ---
