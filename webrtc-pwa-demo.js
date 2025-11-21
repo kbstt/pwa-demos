@@ -48,5 +48,13 @@ async function answerAndConnect() {
 async function finalizeConnection() {
   const answerData = JSON.parse(document.getElementById('answer-box').value);
   await window.p2pConnection.setRemoteDescription(answerData);
-  console.log("Connection Established!");
+  alert("Connection Established!");
+}
+
+function copyFromTextarea(event){
+  let element = event.currentTarget;
+  element.select();
+  let content = element.value;
+  navigator.clipboard.writeText(content);
+  alert("Copied! Now paste it in your other tab.");
 }
