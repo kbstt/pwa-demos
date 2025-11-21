@@ -25,6 +25,7 @@ async function startStreaming() {
   document.getElementById("verify-answer").classList.remove("disabled");
   document.getElementById("create-offer").classList.add("disabled");
   document.getElementById("offer-box").classList.remove("disabled");
+  document.getElementById("answer-box").classList.remove("disabled");
 }
 
 // --- RECEIVER FUNCTION ---
