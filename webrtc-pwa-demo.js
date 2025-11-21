@@ -1,7 +1,7 @@
 window.p2pConnection = null;
-window.rtcVideoElement = document.getElementById('rtc-demo-video');
 
 function initP2P() {
+  window.rtcVideoElement = document.getElementById('rtc-demo-video');
   window.p2pConnection = new RTCPeerConnection();
   window.p2pConnection.ontrack = e => window.rtcVideoElement.srcObject = e.streams[0];
 }
