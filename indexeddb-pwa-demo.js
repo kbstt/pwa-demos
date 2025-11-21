@@ -9,10 +9,9 @@ let db; // Will hold the database object
 function log(message, type = 'info') {
   const logEl = document.getElementById("indexeddb-demo-log");
   const timestamp = new Date().toLocaleTimeString();
-  const color = type === 'error' ? 'text-red-400' : (type === 'success' ? 'text-blue-300' : 'text-green-400');
   const entry = document.createElement('div');
-  entry.className = `mb-1 ${color}`;
-  entry.innerHTML = `<span class="opacity-50">[${timestamp}]</span> ${message}`;  
+  entry.className = type === 'error' ? 'log-error' : (type === 'success' ? 'log-success' : 'log-info')
+  entry.innerHTML = `<span>[${timestamp}]</span> ${message}`;  
   logEl.appendChild(entry);
   logEl.scrollTop = logEl.scrollHeight; // Auto scroll to bottom
 }
