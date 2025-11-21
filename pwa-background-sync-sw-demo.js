@@ -1,4 +1,4 @@
-//NOTE: the following is Service Worker code
+// Important: The following is Service Worker code
 
 // 1. BACKGROUND SYNC (One-off)
 // Fires when the user regains connectivity
