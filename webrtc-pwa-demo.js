@@ -4,11 +4,17 @@ function initP2P() {
   window.rtcVideoElement = document.getElementById('rtc-demo-video');
   window.p2pConnection = new RTCPeerConnection();
   window.p2pConnection.ontrack = e => window.rtcVideoElement.srcObject = e.streams[0];
+
+  document.getElementById("offer-box").addEventListener("paste", function(){
+    document.getElementById("create-offer").classList.add("disabled");
+    document.getElementById("verify-answer").classList.add("disabled");
+  });
 }
 
 // --- SENDER FUNCTION ---
 async function startStreaming() {
   initP2P();
+  document.getElementById("create-answer").classList.add("disabled");
   const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   window.rtcVideoElement.srcObject = stream;
   stream.getTracks().forEach(track => window.p2pConnection.addTrack(track, stream));
@@ -22,6 +28,7 @@ async function startStreaming() {
 
   const offer = await window.p2pConnection.createOffer();
   await window.p2pConnection.setLocalDescription(offer);
+ 
 }
 
 // --- RECEIVER FUNCTION ---
