@@ -24,6 +24,7 @@ async function startStreaming() {
   await window.p2pConnection.setLocalDescription(offer);
   document.getElementById("verify-answer").classList.remove("disabled");
   document.getElementById("create-offer").classList.add("disabled");
+  document.getElementById("answer-box").classList.remove("disabled");
 }
 
 // --- RECEIVER FUNCTION ---
