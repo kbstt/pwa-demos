@@ -4,11 +4,6 @@ function initP2P() {
   window.rtcVideoElement = document.getElementById('rtc-demo-video');
   window.p2pConnection = new RTCPeerConnection();
   window.p2pConnection.ontrack = e => window.rtcVideoElement.srcObject = e.streams[0];
-
-  document.getElementById("offer-box").addEventListener("paste", function(){
-    document.getElementById("create-offer").classList.add("disabled");
-    document.getElementById("verify-answer").classList.add("disabled");
-  });
 }
 
 // --- SENDER FUNCTION ---
