@@ -12,9 +12,10 @@ function vibrationPattern(index){
   }
   /*
   iOS fallback: WebKit browsers do not support the Vibration API.
-  However, you can trigger a light haptic feedback by associating
-  a label to an invisible switch input and toggling it programmatically. 
-  */
+  Until iOS 26, you were able to trigger a light haptic feedback by associating
+  a label to an invisible switch input and toggling it programmatically.
+  UPDATE: This fallback no longer works with iOS 26.2 or higher
+
   else { 
     let el = document.createElement('div');
     let id = Math.random().toString(36).slice(2);
@@ -24,4 +25,5 @@ function vibrationPattern(index){
     el.querySelector('label').click();
     setTimeout(function(){ el.remove(); }, 1500);
   }
+  */
 }
