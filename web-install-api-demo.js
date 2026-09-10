@@ -1,7 +1,7 @@
 async function installApp(){
   let el = document.getElementById("installResult");
   try {
-    if ("install" in navigator){
+	if ("install" in navigator){
       await navigator.install();
 		  el.innerHTML = "Success: Install completed";
     }
@@ -10,9 +10,9 @@ async function installApp(){
     }
   } 
   catch (err) {
-    switch (err.name) {
+	switch (err.name) {
 		case "AbortError":
-        	el.innerHTML = "AbortError: install was cancelled or could not be completed.";
+			el.innerHTML = "AbortError: install was cancelled or could not be completed.";
         	break;
 		case "DataError":
         	el.innerHTML = "DataError: manifest or manifest ID is invalid.";
